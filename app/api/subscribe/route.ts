@@ -32,11 +32,18 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json().catch(() => ({}))
-  const { email, name, source } = body as {
+  const { email, name, source, website } = body as {
     email?: string
     name?: string
     source?: string
+    website?: string
   }
+  
+  // HONEYPOT CHECK
+  if (website && website !== '') {
+    return NextResponse.json({ ok: true })
+  }
+  
   if (!email || !emailRe.test(email)) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 })
   }
