@@ -131,7 +131,7 @@ export function getBadgeDisplay(config: SiteConfig, xp: number) {
 
 export const siteConfig: SiteConfig = {
   name: "FlowVault",
-  tagline: "n8n Automation Templates for Solopreneurs",
+  tagline: "Your Library of Done-For-You Business Automations",
   description:
     "Pre-built n8n workflows that save you weeks of trial and error. Content drafting, Telegram capture, QA review — download the JSON, import, and run.",
   domain: "flowvault.io",
@@ -202,9 +202,9 @@ export const siteConfig: SiteConfig = {
   },
 
   copy: {
-    heroTitle: "Get Working Automations in Minutes, Not Weeks",
+    heroTitle: "Your Library of Done-For-You Business Automations",
     heroSubtitle:
-      "Pre-built n8n workflows for solopreneurs. Download the JSON, import into n8n, and start automating your content pipeline today.",
+      "Pre-built workflows for content, email, lead capture and more. Download the JSON, import into your automation tool, and start saving hours today.",
     ctaButton: "Browse Templates",
     ctaSecondary: "See How It Works",
     loginTitle: "Welcome back",
