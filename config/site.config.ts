@@ -189,7 +189,6 @@ export const siteConfig: SiteConfig = {
       { label: "Lessons", href: "/lessons" },
       { label: "Updates", href: "/updates" },
       { label: "Products", href: "/products" },
-      { label: "Pricing", href: "/pricing" },
       { label: "About", href: "/about" },
     ],
     dashboard: [

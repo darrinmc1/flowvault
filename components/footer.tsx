@@ -49,16 +49,18 @@ export function Footer() {
                   Email Us
                 </a>
               </li>
-              <li>
-                <a
-                  href={siteConfig.contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-slate-400 hover:text-cyan-400 transition-colors"
-                >
-                  GitHub
-                </a>
-              </li>
+              {process.env.NEXT_PUBLIC_SHOW_GITHUB_FOOTER === "true" && (
+                <li>
+                  <a
+                    href={siteConfig.contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    GitHub
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

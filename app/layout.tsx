@@ -15,22 +15,29 @@ const outfit = Outfit({
   variable: "--font-outfit",
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_DOMAIN
+    ? `https://${process.env.NEXT_PUBLIC_SITE_DOMAIN}`
+    : process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : `https://${siteConfig.domain}`
+
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.name} - ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s`,
   },
   description: siteConfig.description,
   authors: [{ name: siteConfig.name }],
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
-    url: `https://${siteConfig.domain}`,
+    url: siteUrl,
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
   },
-  metadataBase: new URL(`https://${siteConfig.domain}`),
+  metadataBase: new URL(siteUrl),
 }
 
 export default function RootLayout({
