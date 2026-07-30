@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import { siteConfig } from "@/config/site.config"
 import { WaitlistPopup } from "@/components/waitlist-popup"
+import Link from "next/link"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,6 +53,14 @@ export default function RootLayout({
       >
         <ClerkProvider>
           {children}
+          <footer className="border-t border-white/10 mt-16 py-8 text-center text-xs text-muted-foreground">
+            <div className="flex justify-center gap-6">
+              <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+              <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+              <Link href="/cookies" className="hover:text-foreground transition-colors">Cookies</Link>
+            </div>
+            <p className="mt-3">&copy; {new Date().getFullYear()} {siteConfig.name}</p>
+          </footer>
           <WaitlistPopup />
         </ClerkProvider>
       </body>
