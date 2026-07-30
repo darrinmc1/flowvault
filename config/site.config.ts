@@ -134,7 +134,7 @@ export const siteConfig: SiteConfig = {
   tagline: "Your Library of Done-For-You Business Automations",
   description:
     "Pre-built n8n workflows that save you weeks of trial and error. Content drafting, Telegram capture, QA review — download the JSON, import, and run.",
-  domain: "flowvault.io",
+  domain: "flowvault-brown.vercel.app",
 
   theme: {
     id: "flowvault",
