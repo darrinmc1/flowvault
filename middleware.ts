@@ -87,32 +87,13 @@ export default clerkMiddleware(
       // Cleanup old entries every 100 requests to prevent memory leaks
       if (rateLimit.size > 10000) {
         const cutoff = now - RATE_LIMIT_WINDOW
-        for (const [key, val] of rateLimit) {
+        rateLimit.forEach((val, key) => {
           if (val.resetAt < cutoff) rateLimit.delete(key)
-        }
+        })
       }
     }
 
     return response
-  },
-  {
-    // Public routes — no auth required even when Clerk is configured
-    publicRoutes: [
-      "/",
-      "/about",
-      "/pricing",
-      "/products(.*)",
-      "/lessons(.*)",
-      "/updates(.*)",
-      "/sign-in(.*)",
-      "/sign-up(.*)",
-      "/terms",
-      "/privacy",
-      "/cookies",
-      "/api/subscribe",
-      "/api/checkout",
-      "/api/stripe/webhook",
-    ],
   },
 )
 
