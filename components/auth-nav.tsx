@@ -31,7 +31,6 @@ export function AuthNav({
           appearance={{
             elements: { avatarBox: "h-8 w-8" },
           }}
-          afterSignOutUrl="/"
         />
       </div>
     )

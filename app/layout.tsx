@@ -52,7 +52,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} font-sans antialiased ${siteConfig.theme.bgClass} ${siteConfig.theme.textClass}`}
       >
-        <ClerkProvider>
+        <ClerkProvider afterSignOutUrl="/">
           <AuthNav className="fixed top-0 right-0 z-[60] p-4" />
           {children}
           <footer className="border-t border-white/10 mt-16 py-8 text-center text-xs text-muted-foreground">
