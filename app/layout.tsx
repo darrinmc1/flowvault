@@ -5,6 +5,7 @@ import "./globals.css"
 import { siteConfig } from "@/config/site.config"
 import { AuthNav } from "@/components/auth-nav"
 import { WaitlistPopup } from "@/components/waitlist-popup"
+import { FeedbackWidget } from "@/components/feedback-widget"
 import Link from "next/link"
 
 const inter = Inter({
@@ -64,6 +65,7 @@ export default function RootLayout({
             <p className="mt-3">&copy; {new Date().getFullYear()} {siteConfig.name}</p>
           </footer>
           <WaitlistPopup />
+          <FeedbackWidget />
         </ClerkProvider>
       </body>
     </html>
