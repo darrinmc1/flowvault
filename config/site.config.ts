@@ -202,9 +202,9 @@ export const siteConfig: SiteConfig = {
   },
 
   copy: {
-    heroTitle: "Your Library of Done-For-You Business Automations",
+    heroTitle: "Done-for-you n8n workflows",
     heroSubtitle:
-      "Pre-built workflows for content, email, lead capture and more. Download the JSON, import into your automation tool, and start saving hours today.",
+      "Pre-built templates for content drafting, Telegram capture, and QA review. Download the JSON, import into n8n, and start saving hours today.",
     ctaButton: "Browse Templates",
     ctaSecondary: "See How It Works",
     loginTitle: "Welcome back",

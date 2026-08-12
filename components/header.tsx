@@ -59,7 +59,7 @@ export function Header() {
                       "transition-all duration-300 hover:scale-105"
                     )}
                   >
-                    {siteConfig.copy.ctaButton}
+                    Sign Up
                   </button>
                 </SignUpButton>
               </>
@@ -116,7 +116,7 @@ export function Header() {
                   </SignInButton>
                   <SignUpButton mode="modal">
                     <button className="block w-full px-4 py-3 text-sm font-bold text-white text-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600">
-                      {siteConfig.copy.ctaButton}
+                      Sign Up
                     </button>
                   </SignUpButton>
                 </>
