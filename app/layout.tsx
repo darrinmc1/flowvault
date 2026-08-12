@@ -3,7 +3,6 @@ import { Inter, Outfit } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import { siteConfig } from "@/config/site.config"
-import { AuthNav } from "@/components/auth-nav"
 import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
 import Link from "next/link"
@@ -54,7 +53,6 @@ export default function RootLayout({
         className={`${inter.variable} ${outfit.variable} font-sans antialiased ${siteConfig.theme.bgClass} ${siteConfig.theme.textClass}`}
       >
         <ClerkProvider afterSignOutUrl="/">
-          <AuthNav className="fixed top-0 right-0 z-[60] p-4" />
           {children}
           <footer className="border-t border-white/10 mt-16 py-8 text-center text-xs text-muted-foreground">
             <div className="flex justify-center gap-6">
