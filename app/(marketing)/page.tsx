@@ -6,8 +6,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       {/* Hero */}
-      <div className={`${siteConfig.theme.heroGradient} py-24 md:py-32`}>
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      <div className={`${siteConfig.theme.heroGradient} relative overflow-hidden py-24 md:py-32`}>
+        <div className="absolute inset-0 bg-[url('/images/hero-flowvault.jpg')] bg-cover bg-center opacity-25" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <div className="text-6xl mb-6 animate-float">{siteConfig.theme.emoji}</div>
           <p className="text-sm font-semibold uppercase tracking-widest text-cyan-300 mb-4">
             Business Automation Templates
