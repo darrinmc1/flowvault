@@ -5,6 +5,7 @@ import "./globals.css"
 import { siteConfig } from "@/config/site.config"
 import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
+import { Analytics } from "@vercel/analytics/react"
 import Link from "next/link"
 
 const inter = Inter({
@@ -68,6 +69,7 @@ export default function RootLayout({
           <WaitlistPopup />
           <FeedbackWidget />
         </ClerkProvider>
+        <Analytics />
       </body>
     </html>
   )
