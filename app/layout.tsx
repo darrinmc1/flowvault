@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   authors: [{ name: siteConfig.name }],
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
