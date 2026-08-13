@@ -77,6 +77,9 @@ export function Footer() {
               <Link href="/terms" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
                 Terms of Service
               </Link>
+              <Link href="/cookies" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+                Cookies Policy
+              </Link>
             </div>
           </div>
         </div>
