@@ -70,6 +70,33 @@ export default function RootLayout({
           <FeedbackWidget />
         </ClerkProvider>
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": `${siteUrl}/#organization`,
+                  name: siteConfig.name,
+                  url: siteUrl,
+                  description: siteConfig.description,
+                  email: siteConfig.contact.email,
+                  sameAs: [siteConfig.contact.github],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${siteUrl}/#website`,
+                  url: siteUrl,
+                  name: siteConfig.name,
+                  description: siteConfig.description,
+                  publisher: { "@id": `${siteUrl}/#organization` },
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   )
