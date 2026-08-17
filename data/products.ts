@@ -47,7 +47,7 @@ This workflow connects an incoming trigger (webhook, schedule, or Telegram messa
 
 Solo creators, indie hackers, and one-person marketing teams who need a first draft fast so they can spend their time editing, not staring at a blank page.`,
   price: 69,
-  stripePriceId: "price_TODO_drafter",
+  stripePriceId: "price_1U4Jt1PVyAgWnzPryxPUEIYK",
   features: [
     "Complete n8n workflow JSON",
     "Blog + social + newsletter in one run",
@@ -90,7 +90,7 @@ Turn your Telegram chat into a frictionless capture inbox. Send a text, voice no
 
 Solopreneurs who capture ideas on the go and want them organized without switching apps or copy-pasting later.`,
   price: 39,
-  stripePriceId: "price_TODO_telegram",
+  stripePriceId: "price_1U4Jt2PVyAgWnzPrZTn95WWp",
   features: [
     "Complete n8n workflow JSON",
     "Telegram Bot setup walkthrough",
@@ -133,7 +133,7 @@ Ship fewer typos and broken links. This workflow takes a draft (Markdown, Notion
 
 Content creators and small teams who want a consistent quality gate without hiring an editor for every post.`,
   price: 49,
-  stripePriceId: "price_TODO_reviewer",
+  stripePriceId: "price_1U4Jt3PVyAgWnzPrkR0GdkSd",
   features: [
     "Complete n8n workflow JSON",
     "LLM-powered proofreading",
@@ -179,7 +179,7 @@ Get every FlowVault workflow at a discount, plus a bonus connector workflow that
 
 Solopreneurs who want the complete content automation stack from day one. Save $28 vs. buying individually.`,
   price: 129,
-  stripePriceId: "price_TODO_bundle",
+  stripePriceId: "price_1U4Jt4PVyAgWnzPrLdQLTFEI",
   features: [
     "All 3 workflow JSONs",
     "Bonus pipeline connector workflow",

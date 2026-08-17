@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar } from "lucide-react"
 import posts from "@/lib/blog"
+import HumorBreak from "@/components/humor-break"
 import { siteConfig } from "@/config/site.config"
 
 export function generateStaticParams() {
@@ -460,6 +461,7 @@ function renderBody(slug: string) {
           Set the whole thing on a schedule and you have a content operation that runs itself,
           except for the part that matters. That part is still you, and that is the point.
         </p>
+        <HumorBreak tag="general" />
       </>
     )
   }
