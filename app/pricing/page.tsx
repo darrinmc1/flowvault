@@ -25,7 +25,6 @@ const plans = [
       "Everything in Free",
       "All Pro template packs",
       "All interactive tools",
-      "30-day refund guarantee",
       "Price locked forever",
     ],
     cta: "Lock in $5/mo",
