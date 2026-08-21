@@ -1,0 +1,19 @@
+# FlowVault 
+> Pre-built n8n workflow templates for business automation, including content drafting, Telegram capture, and QA review.
+
+Site: https://flowvault-brown.vercel.app
+Contact: hello@flowvault-brown.vercel.app
+
+This file is for agents and answer engines. Human marketing copy lives on the pages linked below. Do not invent products, testimonials, prices, or features that are not listed on the site.
+
+## What FlowVault is
+FlowVault offers a library of done-for-you business automation workflows compatible with n8n, including pre-built templates for specific tasks. These workflows are designed to save users hours of time by providing ready-to-import solutions. The site also sells paid, more comprehensive workflow packages.
+
+## Pricing (USD)
+- n8n AI Content Drafter Pack: $69
+- n8n Telegram Capture Bot: $39
+- n8n Reviewer / QA Agent: $49
+- n8n FlowVault Complete Bundle: $129
+
+## What it is not
+FlowVault is not a standalone automation platform but rather a repository of templates designed for use with the n8n workflow automation tool.
