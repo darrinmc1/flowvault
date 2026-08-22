@@ -1,0 +1,119 @@
+{
+  "name": "E-Commerce Pack Sample — Order Processing",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "order-created",
+        "options": {}
+      },
+      "id": "e1f2a3b4-c5d6-7890-efab-901234567890",
+      "name": "Webhook — Order Created",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "order-webhook-001"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.body.total }}",
+              "operation": "larger",
+              "value2": 100
+            }
+          ]
+        }
+      },
+      "id": "f2a3b4c5-d6e7-8901-fabc-012345678901",
+      "name": "High Value Order?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "priority",
+              "value": "HIGH"
+            },
+            {
+              "name": "order_id",
+              "value": "={{ $json.body.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3b4c5d6-e7f8-9012-abcd-123456789012",
+      "name": "Flag Priority",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [680, 200]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "priority",
+              "value": "STANDARD"
+            },
+            {
+              "name": "order_id",
+              "value": "={{ $json.body.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b4c5d6e7-f8a9-0123-bcde-234567890123",
+      "name": "Flag Standard",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [680, 420]
+    }
+  ],
+  "connections": {
+    "Webhook — Order Created": {
+      "main": [
+        [
+          {
+            "node": "High Value Order?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Value Order?": {
+      "main": [
+        [
+          {
+            "node": "Flag Priority",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Flag Standard",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "ecommerce-sample-001",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}
