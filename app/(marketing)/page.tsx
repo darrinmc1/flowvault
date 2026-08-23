@@ -1,206 +1,146 @@
 import Link from "next/link"
-import { MousePointerClick, FileInput, Play } from "lucide-react"
 import { siteConfig } from "@/config/site.config"
-import { ALL_PRODUCTS } from "@/data/products"
-import { NewsletterForm } from "@/components/newsletter-form"
 
-const HOW_IT_WORKS = [
-  {
-    step: "1",
-    title: "Pick",
-    description: "Choose an n8n workflow from the template library that matches the job.",
-    icon: MousePointerClick,
-  },
-  {
-    step: "2",
-    title: "Import",
-    description: "Download the JSON and import it in n8n via Settings → Import from File.",
-    icon: FileInput,
-  },
-  {
-    step: "3",
-    title: "Run",
-    description: "Add your credentials, flip the workflow on, and let it handle the busywork.",
-    icon: Play,
-  },
-] as const
-
-export default function HomePage() {
+export default function MarketingHomePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
+    <main className="flex flex-col items-center">
       {/* Hero */}
-      <section
-        className={`${siteConfig.theme.heroGradient} relative overflow-hidden pt-28 pb-24 md:pt-36 md:pb-32`}
-      >
-        <div
-          className="absolute inset-0 bg-[url('/images/hero-flowvault.jpg')] bg-cover bg-center opacity-30"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4 animate-fade-up">
-            <span className="gradient-text-cyan">{siteConfig.name}</span>
-          </p>
-          <h1
-            className="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-5 animate-fade-up"
-            style={{ animationDelay: "0.08s" }}
-          >
-            {siteConfig.copy.heroTitle}
-          </h1>
-          <p
-            className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-4 animate-fade-up"
-            style={{ animationDelay: "0.16s" }}
-          >
-            {siteConfig.copy.heroSubtitle}
-          </p>
-          <p
-            className="text-sm font-medium text-cyan-300/90 mb-10 animate-fade-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            Compatible with <span className="text-cyan-200">n8n</span>
-          </p>
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up"
-            style={{ animationDelay: "0.28s" }}
-          >
-            <Link
-              href="/products"
-              className="px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105"
-            >
-              {siteConfig.copy.ctaButton}
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="px-8 py-4 rounded-xl font-bold border border-white/10 text-slate-200 hover:bg-white/5 transition-all"
-            >
-              {siteConfig.copy.ctaSecondary}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Template grid */}
-      <section id="templates" className="mx-auto max-w-6xl px-6 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold mb-3">
-            <span className="gradient-text-cyan">Workflow templates</span>
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Ready-to-import n8n workflows from the FlowVault library.
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-6">
-          {ALL_PRODUCTS.map((product) => {
-            const isFree = product.price === 0
-            return (
-              <Link
-                key={product.id}
-                href={`/products/${product.id}`}
-                className="glass-card p-6 rounded-2xl transition-all hover:scale-[1.01] flex flex-col group"
-              >
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <div className="text-3xl" aria-hidden="true">
-                    {product.emoji}
-                  </div>
-                  <div className="flex flex-wrap items-center justify-end gap-2">
-                    <span
-                      className={
-                        isFree
-                          ? "text-[11px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-400/20"
-                          : "text-[11px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-200 border border-amber-400/20"
-                      }
-                    >
-                      {isFree ? "Free" : "Paid"}
-                    </span>
-                    <span className="text-[11px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-400/20">
-                      n8n
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-                  {product.name}
-                </h3>
-                <p className="text-sm text-slate-400 mb-5 flex-1">{product.description}</p>
-                <div className="flex items-end justify-between gap-3">
-                  <span className="text-xs font-medium text-slate-500">
-                    {product.category}
-                  </span>
-                  <span className="text-lg font-extrabold text-white">
-                    {isFree ? "Free" : `$${product.price}`}
-                  </span>
-                </div>
-              </Link>
-            )
-          })}
-        </div>
-        <div className="mt-10 text-center">
+      <section className="w-full max-w-5xl mx-auto px-6 py-24 text-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
+          Automate Anything with
+          <span className="text-indigo-400"> Ready-Made n8n Workflows</span>
+        </h1>
+        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+          FlowVault gives you a growing library of production-ready n8n workflow templates — download, import, and run in minutes.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/products"
-            className="inline-flex text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all"
           >
-            View all products →
+            Browse Workflows
+          </Link>
+          <Link
+            href="/pricing"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 font-semibold transition-all"
+          >
+            View Pricing
           </Link>
         </div>
       </section>
 
-      {/* How it works */}
-      <section id="how-it-works" className="border-y border-white/5 bg-white/[0.02]">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold mb-3">
-              <span className="gradient-text-cyan">Pick → Import → Run</span>
-            </h2>
-            <p className="text-slate-400 max-w-xl mx-auto">
-              Three steps from template to a live n8n workflow.
+      {/* How It Works */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-20">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">How It Works</h2>
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+            From zero to running automation in under 5 minutes — no coding required.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Step 1 */}
+          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
+              1
+            </div>
+            <div className="text-3xl mb-3">📥</div>
+            <h3 className="text-white font-bold text-lg mb-2">Download JSON</h3>
+            <p className="text-slate-400 text-sm">
+              Pick a workflow from the library and download the n8n-compatible JSON file instantly.
             </p>
           </div>
-          <ol className="grid md:grid-cols-3 gap-10 md:gap-6">
-            {HOW_IT_WORKS.map((item, index) => {
-              const Icon = item.icon
-              return (
-                <li
-                  key={item.title}
-                  className="relative text-center md:text-left"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-cyan-500/10 border border-cyan-400/20 text-cyan-300 mb-4">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400/80 mb-2">
-                    Step {item.step}
-                  </p>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    {item.description}
-                  </p>
-                </li>
-              )
-            })}
-          </ol>
-          <div className="mt-12 text-center">
-            <Link
-              href="/lessons"
-              className="text-sm font-semibold text-slate-300 hover:text-cyan-300 transition-colors"
-            >
-              Walk through setup in the lessons →
-            </Link>
+          {/* Step 2 */}
+          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
+              2
+            </div>
+            <div className="text-3xl mb-3">🚀</div>
+            <h3 className="text-white font-bold text-lg mb-2">Open n8n</h3>
+            <p className="text-slate-400 text-sm">
+              Log in to your n8n instance — cloud or self-hosted. Any version works.
+            </p>
+          </div>
+          {/* Step 3 */}
+          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
+              3
+            </div>
+            <div className="text-3xl mb-3">📂</div>
+            <h3 className="text-white font-bold text-lg mb-2">Import Workflow</h3>
+            <p className="text-slate-400 text-sm">
+              Use n8n&apos;s built-in import feature to load the JSON file — your workflow appears instantly.
+            </p>
+          </div>
+          {/* Step 4 */}
+          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
+              4
+            </div>
+            <div className="text-3xl mb-3">⚡</div>
+            <h3 className="text-white font-bold text-lg mb-2">Customize &amp; Run</h3>
+            <p className="text-slate-400 text-sm">
+              Add your API keys, tweak any steps to fit your needs, then activate and let it run.
+            </p>
+          </div>
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            href="/products"
+            className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all"
+          >
+            Get Your First Workflow →
+          </Link>
+        </div>
+      </section>
+
+      {/* Features / Value Props */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-20">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Why FlowVault?</h2>
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+            Stop building automations from scratch. Start with battle-tested templates.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="text-3xl mb-4">🗂️</div>
+            <h3 className="text-white font-bold text-lg mb-2">Growing Library</h3>
+            <p className="text-slate-400 text-sm">
+              New workflows added regularly across categories like marketing, ops, data, and more.
+            </p>
+          </div>
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="text-3xl mb-4">🔒</div>
+            <h3 className="text-white font-bold text-lg mb-2">Production-Ready</h3>
+            <p className="text-slate-400 text-sm">
+              Every workflow is tested, documented, and built to handle real-world edge cases.
+            </p>
+          </div>
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="text-3xl mb-4">🎓</div>
+            <h3 className="text-white font-bold text-lg mb-2">Learn As You Go</h3>
+            <p className="text-slate-400 text-sm">
+              Each template comes with a walkthrough so you understand exactly how it works.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Email CTA */}
-      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-extrabold mb-4">
-          {siteConfig.copy.emailCaptureHeading}
+      {/* CTA */}
+      <section className="w-full max-w-3xl mx-auto px-6 py-20 text-center">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+          Ready to automate your workflow?
         </h2>
-        <p className="text-slate-400 mb-8">
-          {siteConfig.copy.emailCaptureSubheading}
+        <p className="text-slate-400 text-lg mb-8">
+          Join FlowVault and get instant access to the full workflow library.
         </p>
-        <NewsletterForm source="homepage" />
+        <Link
+          href="/pricing"
+          className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg transition-all"
+        >
+          See Pricing Plans
+        </Link>
       </section>
-    </div>
+    </main>
   )
 }
