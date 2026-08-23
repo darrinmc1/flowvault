@@ -1,146 +1,134 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
+import { HeroEmailCapture } from "@/components/hero-email-capture"
+import { Icons } from "@/components/icons"
 
-export default function MarketingHomePage() {
+export default function MarketingPage() {
   return (
-    <main className="flex flex-col items-center">
-      {/* Hero */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-24 text-center">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6">
-          Automate Anything with
-          <span className="text-indigo-400"> Ready-Made n8n Workflows</span>
-        </h1>
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-          FlowVault gives you a growing library of production-ready n8n workflow templates — download, import, and run in minutes.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+    <>
+      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <Link
-            href="/products"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all"
+            href={siteConfig.links.twitter}
+            className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
+            target="_blank"
           >
-            Browse Workflows
+            Follow along on Twitter
           </Link>
-          <Link
-            href="/pricing"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-xl border border-slate-700 hover:border-indigo-500 text-slate-300 font-semibold transition-all"
-          >
-            View Pricing
-          </Link>
+          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+            An example app built using Next.js 13 server components.
+          </h1>
+          <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+            I&apos;m building a web app with Next.js 13 and open sourcing everything. Follow along as we figure this out together.
+          </p>
+          <HeroEmailCapture />
         </div>
       </section>
-
-      {/* How It Works */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">How It Works</h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            From zero to running automation in under 5 minutes — no coding required.
+      <section
+        id="features"
+        className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
+      >
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
+            Features
+          </h2>
+          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+            This project is an experiment to see how a modern app, with features like auth, subscriptions, API routes, and static pages would work in Next.js 13 app dir.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Step 1 */}
-          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
-              1
+        <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <Icons.next className="h-12 w-12" />
+              <div className="space-y-2">
+                <h3 className="font-bold">Next.js 13</h3>
+                <p className="text-sm text-muted-foreground">
+                  App dir, Routing, Layouts, Loading UI and API routes.
+                </p>
+              </div>
             </div>
-            <div className="text-3xl mb-3">📥</div>
-            <h3 className="text-white font-bold text-lg mb-2">Download JSON</h3>
-            <p className="text-slate-400 text-sm">
-              Pick a workflow from the library and download the n8n-compatible JSON file instantly.
-            </p>
           </div>
-          {/* Step 2 */}
-          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
-              2
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <Icons.react className="h-12 w-12" />
+              <div className="space-y-2">
+                <h3 className="font-bold">React 18</h3>
+                <p className="text-sm text-muted-foreground">
+                  Server and Client Components. Use hook.
+                </p>
+              </div>
             </div>
-            <div className="text-3xl mb-3">🚀</div>
-            <h3 className="text-white font-bold text-lg mb-2">Open n8n</h3>
-            <p className="text-slate-400 text-sm">
-              Log in to your n8n instance — cloud or self-hosted. Any version works.
-            </p>
           </div>
-          {/* Step 3 */}
-          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
-              3
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <Icons.database className="h-12 w-12" />
+              <div className="space-y-2">
+                <h3 className="font-bold">Database</h3>
+                <p className="text-sm text-muted-foreground">
+                  ORM using Prisma and deployed on PlanetScale.
+                </p>
+              </div>
             </div>
-            <div className="text-3xl mb-3">📂</div>
-            <h3 className="text-white font-bold text-lg mb-2">Import Workflow</h3>
-            <p className="text-slate-400 text-sm">
-              Use n8n&apos;s built-in import feature to load the JSON file — your workflow appears instantly.
-            </p>
           </div>
-          {/* Step 4 */}
-          <div className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-            <div className="w-12 h-12 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 text-xl font-bold mb-4">
-              4
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <Icons.auth className="h-12 w-12" />
+              <div className="space-y-2">
+                <h3 className="font-bold">Authentication</h3>
+                <p className="text-sm text-muted-foreground">
+                  Authentication using NextAuth.js and middlewares.
+                </p>
+              </div>
             </div>
-            <div className="text-3xl mb-3">⚡</div>
-            <h3 className="text-white font-bold text-lg mb-2">Customize &amp; Run</h3>
-            <p className="text-slate-400 text-sm">
-              Add your API keys, tweak any steps to fit your needs, then activate and let it run.
-            </p>
+          </div>
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <Icons.billing className="h-12 w-12" />
+              <div className="space-y-2">
+                <h3 className="font-bold">Subscriptions</h3>
+                <p className="text-sm text-muted-foreground">
+                  Free and paid subscriptions using Stripe.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <Icons.component className="h-12 w-12" />
+              <div className="space-y-2">
+                <h3 className="font-bold">Components</h3>
+                <p className="text-sm text-muted-foreground">
+                  UI components built using Radix UI and styled with Tailwind CSS.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="text-center mt-10">
-          <Link
-            href="/products"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all"
-          >
-            Get Your First Workflow →
-          </Link>
-        </div>
-      </section>
-
-      {/* Features / Value Props */}
-      <section className="w-full max-w-5xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Why FlowVault?</h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Stop building automations from scratch. Start with battle-tested templates.
+        <div className="mx-auto text-center md:max-w-[58rem]">
+          <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+            Taxonomy also includes a blog and a full-featured documentation site built using Contentlayer and MDX.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-card p-6 rounded-2xl">
-            <div className="text-3xl mb-4">🗂️</div>
-            <h3 className="text-white font-bold text-lg mb-2">Growing Library</h3>
-            <p className="text-slate-400 text-sm">
-              New workflows added regularly across categories like marketing, ops, data, and more.
-            </p>
-          </div>
-          <div className="glass-card p-6 rounded-2xl">
-            <div className="text-3xl mb-4">🔒</div>
-            <h3 className="text-white font-bold text-lg mb-2">Production-Ready</h3>
-            <p className="text-slate-400 text-sm">
-              Every workflow is tested, documented, and built to handle real-world edge cases.
-            </p>
-          </div>
-          <div className="glass-card p-6 rounded-2xl">
-            <div className="text-3xl mb-4">🎓</div>
-            <h3 className="text-white font-bold text-lg mb-2">Learn As You Go</h3>
-            <p className="text-slate-400 text-sm">
-              Each template comes with a walkthrough so you understand exactly how it works.
-            </p>
-          </div>
+      </section>
+      <section id="open-source" className="container py-8 md:py-12 lg:py-24">
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
+          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
+            Proudly Open Source
+          </h2>
+          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+            Taxonomy is open source and powered by open source software. The code is available on{" "}
+            <Link
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4"
+            >
+              GitHub
+            </Link>
+            .
+          </p>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="w-full max-w-3xl mx-auto px-6 py-20 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-          Ready to automate your workflow?
-        </h2>
-        <p className="text-slate-400 text-lg mb-8">
-          Join FlowVault and get instant access to the full workflow library.
-        </p>
-        <Link
-          href="/pricing"
-          className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-lg transition-all"
-        >
-          See Pricing Plans
-        </Link>
-      </section>
-    </main>
+    </>
   )
 }
