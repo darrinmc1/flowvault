@@ -1,8 +1,10 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 export function FeedbackWidget() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [rating, setRating] = useState(0)
   const [hoveredRating, setHoveredRating] = useState(0)
@@ -12,6 +14,8 @@ export function FeedbackWidget() {
   const [website, setWebsite] = useState("") // honeypot
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
   const [responseMessage, setResponseMessage] = useState("")
+
+  if (pathname === "/") return null
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

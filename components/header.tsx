@@ -35,7 +35,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-white/5 transition-all duration-200"
+                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-amber-400 rounded-lg hover:bg-white/5 transition-all duration-200"
               >
                 {link.label}
               </Link>
@@ -55,9 +55,9 @@ export function Header() {
                   <button
                     className={cn(
                       "px-5 py-2 text-sm font-bold rounded-xl text-white",
-                      "bg-gradient-to-r from-cyan-500 to-blue-600",
-                      "hover:from-cyan-400 hover:to-blue-500",
-                      "shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40",
+                      "bg-gradient-to-r from-orange-500 to-amber-600",
+                      "hover:from-orange-400 hover:to-amber-500",
+                      "shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40",
                       "transition-all duration-300 hover:scale-105"
                     )}
                   >
@@ -85,13 +85,16 @@ export function Header() {
             )}
           </div>
 
-          <button
-            className="md:hidden p-2 text-slate-300 hover:text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <HumorToggle />
+            <button
+              className="p-2 text-slate-300 hover:text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -103,7 +106,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-cyan-400 rounded-lg hover:bg-white/5 transition-all"
+                className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-amber-400 rounded-lg hover:bg-white/5 transition-all"
               >
                 {link.label}
               </Link>
@@ -117,7 +120,7 @@ export function Header() {
                     </button>
                   </SignInButton>
                   <SignUpButton mode="modal">
-                    <button className="block w-full px-4 py-3 text-sm font-bold text-white text-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600">
+                    <button className="block w-full px-4 py-3 text-sm font-bold text-white text-center rounded-xl bg-gradient-to-r from-orange-500 to-amber-600">
                       Sign Up
                     </button>
                   </SignUpButton>

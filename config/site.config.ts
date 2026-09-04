@@ -202,11 +202,11 @@ export const siteConfig: SiteConfig = {
   },
 
   copy: {
-    heroTitle: "Done-for-you n8n workflows",
+    heroTitle: "Import n8n workflows without building them from scratch",
     heroSubtitle:
-      "Pre-built templates for content drafting, Telegram capture, and QA review. Download the JSON, import into n8n, and start saving hours today.",
-    ctaButton: "Browse Templates",
-    ctaSecondary: "See How It Works",
+      "FlowVault is a library of production-ready n8n JSON — Content Drafter, Telegram Capture, QA Review. Download, import, run.",
+    ctaButton: "Browse workflow templates",
+    ctaSecondary: "Read a walkthrough",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
     foundingMemberHeading: "Founding Member — Lock In Early Access Pricing",

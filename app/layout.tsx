@@ -3,7 +3,6 @@ import { Inter, Outfit } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import { siteConfig } from "@/config/site.config"
-import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
 import { Analytics } from "@vercel/analytics/react"
 import Link from "next/link"
@@ -66,7 +65,7 @@ export default function RootLayout({
             </div>
             <p className="mt-3">&copy; {new Date().getFullYear()} {siteConfig.name}</p>
           </footer>
-          <WaitlistPopup />
+          {/* Auto waitlist modal stays off. Feedback is opt-in, not auto. */}
           <FeedbackWidget />
         </ClerkProvider>
         <Analytics />
