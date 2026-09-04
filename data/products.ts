@@ -49,7 +49,7 @@ Solo creators, indie hackers, and one-person marketing teams who need a first dr
 
 ### Status
 
-Price stays **$69** one-time. Checkout and the zip at `products/ai-content-drafter.zip` are **Coming Soon**. The written walkthrough is live: How the AI Content Drafter Works. No new SKU. No live Stripe button.`,
+Price stays **$69** one-time. Checkout and the zip at products/ai-content-drafter.zip are **Coming Soon**. The written walkthrough is live: How the AI Content Drafter Works. No new SKU. No live Stripe button.`,
   price: 69,
   stripePriceId: "price_1U4Jt1PVyAgWnzPryxPUEIYK",
   features: [
@@ -96,7 +96,7 @@ Solopreneurs who capture ideas on the go and want them organized without switchi
 
 ### Status
 
-Price stays **$39** one-time. The zip at `products/telegram-capture-bot.zip` is **Coming Soon**. Build the graph from the Telegram Capture Bot Breakdown lesson in the meantime.`,
+Price stays **$39** one-time. The zip at products/telegram-capture-bot.zip is **Coming Soon**. Build the graph from the Telegram Capture Bot Breakdown lesson in the meantime.`,
   price: 39,
   stripePriceId: "price_1U4Jt2PVyAgWnzPrZTn95WWp",
   features: [
@@ -143,7 +143,7 @@ Content creators and small teams who want a consistent quality gate without hiri
 
 ### Status
 
-Price stays **$49** one-time. The zip at `products/reviewer-qa-agent.zip` is **Coming Soon**. The Reviewer / QA Agent Explained lesson is the spec you can wire by hand.`,
+Price stays **$49** one-time. The zip at products/reviewer-qa-agent.zip is **Coming Soon**. The Reviewer / QA Agent Explained lesson is the spec you can wire by hand.`,
   price: 49,
   stripePriceId: "price_1U4Jt3PVyAgWnzPrkR0GdkSd",
   features: [
