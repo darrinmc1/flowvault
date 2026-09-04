@@ -2,6 +2,7 @@ import React from "react"
 
 function inlineFormat(text: string): string {
   return text
+    .replace(/`([^`]+)`/g, '<code class="rounded bg-slate-800/80 px-1.5 py-0.5 text-[0.85em] text-cyan-200">$1</code>')
     .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
     .replace(/\*(.+?)\*/g, '<em class="text-cyan-300">$1</em>')
 }
@@ -50,6 +51,19 @@ export function MarkdownRenderer({ content }: { content: string }) {
     if (trimmed === "") {
       flushList()
       flushOrdered()
+      continue
+    }
+
+    if (trimmed.startsWith("> ")) {
+      flushList()
+      flushOrdered()
+      elements.push(
+        <blockquote
+          key={`bq-${i}`}
+          className="border-l-2 border-violet-500/50 bg-violet-950/20 px-4 py-3 mb-4 text-slate-300 italic"
+          dangerouslySetInnerHTML={{ __html: inlineFormat(trimmed.slice(2)) }}
+        />
+      )
       continue
     }
 
