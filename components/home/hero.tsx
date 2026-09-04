@@ -47,8 +47,8 @@ export function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-8 px-5 py-8 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,32rem)] lg:gap-12 lg:py-14">
-        {/* Plane 4 — foreground copy */}
+      <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-6 px-5 py-7 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,32rem)] lg:gap-12 lg:py-14">
+        {/* Plane 4 — foreground copy (still sits under H1 on mobile) */}
         <div className="min-w-0">
           <p className="text-sm font-medium text-amber-400">
             Done-for-you n8n automations
@@ -56,15 +56,22 @@ export function Hero() {
           <h1 className="mt-3 max-w-[18ch] text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
             Import n8n workflows without building them from scratch
           </h1>
-          <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-slate-300 md:text-lg">
+          <p className="mt-3 max-w-xl text-pretty text-sm leading-relaxed text-slate-300 sm:mt-4 sm:text-base md:text-lg">
             FlowVault is a library of production-ready n8n JSON — Content Drafter,
             Telegram Capture, QA Review. Download, import, run.
           </p>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">
+          <p className="mt-2 hidden max-w-xl text-sm leading-relaxed text-slate-400 sm:block">
             We already spent the weekend on the nodes. You import the file.
           </p>
+        </div>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        {/* Plane 5 — product still stays in the fold */}
+        <div ref={stillRef} className="min-w-0 will-change-transform lg:row-span-2">
+          <WorkflowStillFrame />
+        </div>
+
+        <div className="min-w-0">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href="/products"
               className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all hover:from-orange-400 hover:to-amber-500"
@@ -81,11 +88,6 @@ export function Hero() {
           <p className="mt-2 text-xs text-slate-500">
             Walkthrough: How the AI Content Drafter Works
           </p>
-        </div>
-
-        {/* Plane 5 — product still stays in the fold */}
-        <div ref={stillRef} className="min-w-0 will-change-transform">
-          <WorkflowStillFrame />
         </div>
       </div>
     </section>

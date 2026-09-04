@@ -93,7 +93,7 @@ export function WorkflowStillFrame({
       <figcaption className="border-b border-white/10 px-4 py-2 text-xs text-slate-400">
         {caption}
       </figcaption>
-      <div className="relative h-48 overflow-hidden sm:h-56">
+      <div className="relative h-40 overflow-hidden sm:h-52 lg:h-56">
         <div className="kickoff-pan origin-top-left">
           <WorkflowCanvas />
         </div>
