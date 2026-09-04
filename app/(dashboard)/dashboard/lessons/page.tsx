@@ -4,7 +4,11 @@ import { ALL_MODULES } from "@/data/modules"
 export default function DashboardLessonsPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">My Lessons</h1>
+      <h1 className="text-2xl font-bold mb-2">My Lessons</h1>
+      <p className="text-sm text-slate-500 mb-6">
+        {ALL_MODULES.filter((m) => m.status === "published").length} written lessons. Same
+        pages as /lessons — nothing extra behind the dashboard.
+      </p>
       <div className="space-y-3">
         {ALL_MODULES.filter((m) => m.status === "published").map((mod) => (
           <Link

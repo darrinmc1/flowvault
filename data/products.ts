@@ -45,7 +45,11 @@ This workflow connects an incoming trigger (webhook, schedule, or Telegram messa
 
 ### Who It's For
 
-Solo creators, indie hackers, and one-person marketing teams who need a first draft fast so they can spend their time editing, not staring at a blank page.`,
+Solo creators, indie hackers, and one-person marketing teams who need a first draft fast so they can spend their time editing, not staring at a blank page.
+
+### Status
+
+Price stays **$69** one-time. Checkout and the zip at `products/ai-content-drafter.zip` are **Coming Soon**. The written walkthrough is live: How the AI Content Drafter Works. No new SKU. No live Stripe button.`,
   price: 69,
   stripePriceId: "price_1U4Jt1PVyAgWnzPryxPUEIYK",
   features: [
@@ -88,7 +92,11 @@ Turn your Telegram chat into a frictionless capture inbox. Send a text, voice no
 
 ### Who It's For
 
-Solopreneurs who capture ideas on the go and want them organized without switching apps or copy-pasting later.`,
+Solopreneurs who capture ideas on the go and want them organized without switching apps or copy-pasting later.
+
+### Status
+
+Price stays **$39** one-time. The zip at `products/telegram-capture-bot.zip` is **Coming Soon**. Build the graph from the Telegram Capture Bot Breakdown lesson in the meantime.`,
   price: 39,
   stripePriceId: "price_1U4Jt2PVyAgWnzPrZTn95WWp",
   features: [
@@ -131,7 +139,11 @@ Ship fewer typos and broken links. This workflow takes a draft (Markdown, Notion
 
 ### Who It's For
 
-Content creators and small teams who want a consistent quality gate without hiring an editor for every post.`,
+Content creators and small teams who want a consistent quality gate without hiring an editor for every post.
+
+### Status
+
+Price stays **$49** one-time. The zip at `products/reviewer-qa-agent.zip` is **Coming Soon**. The Reviewer / QA Agent Explained lesson is the spec you can wire by hand.`,
   price: 49,
   stripePriceId: "price_1U4Jt3PVyAgWnzPrkR0GdkSd",
   features: [
@@ -177,7 +189,11 @@ Get every FlowVault workflow at a discount, plus a bonus connector workflow that
 
 ### Who It's For
 
-Solopreneurs who want the complete content automation stack from day one. Save $28 vs. buying individually.`,
+Solopreneurs who want the complete content automation stack from day one. Save $28 vs. buying individually.
+
+### Status
+
+Price stays **$129** one-time. The bundle zip and the connector JSON are **Coming Soon**. The chaining lesson is the wiring diagram. No extra tier invented for this page.`,
   price: 129,
   stripePriceId: "price_1U4Jt4PVyAgWnzPrLdQLTFEI",
   features: [

@@ -27,9 +27,9 @@ We built FlowVault because we spent too many weekends debugging n8n nodes instea
 - **Reviewer / QA Agent** ($49) — proofreading, link checking, and structure validation before you hit publish
 - **Complete Bundle** ($129) — all three plus a pipeline connector that chains them together
 
-### 10 Free Lessons
+### Written Lessons
 
-Every product comes with detailed walkthrough lessons explaining the workflow node by node. Plus foundational lessons on n8n basics, prompt engineering, trigger patterns, and error handling.
+Walkthrough lessons explain the graphs node by node — n8n basics, the three packs, webhooks, APIs, Code node, prompts, chaining, tagging, custom QA, and error handling. Count them on the Lessons index; we do not invent a bigger catalog. Pack JSON downloads remain Coming Soon.
 
 ### Coming Soon
 

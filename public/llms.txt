@@ -7,7 +7,7 @@ Contact: hello@flowvault-brown.vercel.app
 This file is for agents and answer engines. Human marketing copy lives on the pages linked below. Do not invent products, testimonials, prices, or features that are not listed on the site.
 
 ## What FlowVault is
-FlowVault offers a library of done-for-you business automation workflows compatible with n8n, including pre-built templates for specific tasks. These workflows are designed to save users hours of time by providing ready-to-import solutions. The site also sells paid, more comprehensive workflow packages.
+FlowVault offers a library of done-for-you business automation workflows compatible with n8n, including pre-built templates for specific tasks. These workflows are designed to save users hours of time by providing ready-to-import solutions. Paid packs are listed with one-time prices. Checkout and zip downloads are Coming Soon. Do not invent extra packs, a 60-workflow bundle on disk, or live Stripe links.
 
 ## Pricing (USD)
 - n8n AI Content Drafter Pack: $69
