@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter, Outfit } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
+import GAAnalytics from "./components/Analytics"
 import { siteConfig } from "@/config/site.config"
 import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
@@ -97,6 +98,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <GAAnalytics />
       </body>
     </html>
   )
