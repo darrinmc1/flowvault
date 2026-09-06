@@ -81,11 +81,11 @@ export function WorkflowCanvas() {
           </g>
         ))}
 
-        <circle r="4" className="fv-packet fv-packet-1" cx="0" cy="0" fill="#fbbf24" />
-        <circle r="4" className="fv-packet fv-packet-2" cx="0" cy="0" fill="#fbbf24" />
-        <circle r="3.5" className="fv-packet fv-packet-3" cx="0" cy="0" fill="#f59e0b" />
-        <circle r="3.5" className="fv-packet fv-packet-4" cx="0" cy="0" fill="#f59e0b" />
-        <circle r="3.5" className="fv-packet fv-packet-5" cx="0" cy="0" fill="#f59e0b" />
+        <circle r="5" className="fv-packet fv-packet-1" cx="0" cy="0" fill="#fde68a" />
+        <circle r="5" className="fv-packet fv-packet-2" cx="0" cy="0" fill="#fde68a" />
+        <circle r="4.5" className="fv-packet fv-packet-3" cx="0" cy="0" fill="#fbbf24" />
+        <circle r="4.5" className="fv-packet fv-packet-4" cx="0" cy="0" fill="#fbbf24" />
+        <circle r="4.5" className="fv-packet fv-packet-5" cx="0" cy="0" fill="#fbbf24" />
 
         {NODES.map((node) => (
           <g key={node.id} className={`fv-node fv-node-${node.step}`}>

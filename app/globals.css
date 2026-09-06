@@ -291,6 +291,7 @@
   opacity: 0;
   transform-box: view-box;
   transform-origin: 0 0;
+  filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.95));
 }
 .fv-packet-1 { animation: fv-packet-1 var(--fv-cycle) linear infinite; }
 .fv-packet-2 { animation: fv-packet-2 var(--fv-cycle) linear infinite; }
