@@ -51,16 +51,17 @@ export function Hero() {
         {/* Plane 4 — foreground copy (still sits under H1 on mobile) */}
         <div className="min-w-0">
           <p className="text-sm font-medium text-amber-400">
-            Done-for-you n8n automations
+            n8n JSON workflow templates + walkthroughs
           </p>
           <h1 className="mt-3 max-w-[18ch] text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
             Import n8n workflows without building them from scratch
           </h1>
           <p className="mt-3 max-w-xl text-pretty text-sm leading-relaxed text-slate-300 sm:mt-4 sm:text-base md:text-lg">
-            FlowVault ships three n8n JSON files: Content Drafter, Telegram Capture,
-            and QA Review. Download a file, import it in n8n, and run it.
+            Importable JSON files — Content Drafter, Telegram Capture, QA Review —
+            plus a walkthrough that matches the nodes. Download the file, import it
+            in your n8n, run it.
           </p>
-          <p className="mt-2 hidden max-w-xl text-sm leading-relaxed text-slate-400 sm:block">
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-400">
             We already spent the weekend on the nodes. You import the file.
           </p>
         </div>
@@ -76,7 +77,7 @@ export function Hero() {
               href="/products"
               className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all hover:from-orange-400 hover:to-amber-500"
             >
-              Browse workflow templates
+              Browse n8n JSON templates
             </Link>
             <Link
               href="/lessons/how-the-drafter-works"

@@ -204,8 +204,8 @@ export const siteConfig: SiteConfig = {
   copy: {
     heroTitle: "Import n8n workflows without building them from scratch",
     heroSubtitle:
-      "FlowVault ships three n8n JSON files: Content Drafter, Telegram Capture, and QA Review. Download a file, import it in n8n, and run it.",
-    ctaButton: "Browse workflow templates",
+      "Importable JSON files — Content Drafter, Telegram Capture, QA Review — plus a walkthrough that matches the nodes. Download the file, import it in your n8n, run it.",
+    ctaButton: "Browse n8n JSON templates",
     ctaSecondary: "Read a walkthrough",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
