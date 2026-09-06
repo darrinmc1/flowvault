@@ -29,10 +29,10 @@ export const humorTheme: HumorTheme = {
   dark: true,
   cardBorder: "border-slate-700",
   cardBg: "bg-slate-800/80",
-  eyebrowColor: "text-violet-400",
+  eyebrowColor: "text-amber-400",
   label: "Flow break",
   punchColor: "text-slate-300",
-  buttonBg: "bg-violet-600",
+  buttonBg: "bg-amber-600",
   footerNote: "Even processes need a process",
   shuffleLabel: "Another one",
 }
