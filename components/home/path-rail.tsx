@@ -40,11 +40,11 @@ export function PathRail() {
         <Reveal>
           <p className="text-sm font-medium text-amber-400">The vault</p>
           <h2 className="mt-2 max-w-xl text-3xl font-bold tracking-tight text-white">
-            Workflows you can import, not a catalog of blanks.
+            Three n8n JSON templates you can import today.
           </h2>
           <p className="mt-3 max-w-xl text-slate-400">
-            Three shipped templates plus written walkthroughs. We will not list a
-            workflow we have not wired.
+            Content Drafter, Telegram Capture, and QA Review, plus written
+            walkthroughs. We will not list a workflow we have not wired.
           </p>
         </Reveal>
 

@@ -131,9 +131,9 @@ export function getBadgeDisplay(config: SiteConfig, xp: number) {
 
 export const siteConfig: SiteConfig = {
   name: "FlowVault",
-  tagline: "Your Library of Done-For-You Business Automations",
+  tagline: "n8n JSON you import",
   description:
-    "Pre-built n8n workflows that save you weeks of trial and error. Content drafting, Telegram capture, QA review — download the JSON, import, and run.",
+    "n8n JSON for Content Drafter, Telegram Capture, and QA Review. Download the file, import it, and run it on your own instance.",
   domain: "flowvault-brown.vercel.app",
 
   theme: {
@@ -204,7 +204,7 @@ export const siteConfig: SiteConfig = {
   copy: {
     heroTitle: "Import n8n workflows without building them from scratch",
     heroSubtitle:
-      "FlowVault is a library of production-ready n8n JSON — Content Drafter, Telegram Capture, QA Review. Download, import, run.",
+      "FlowVault ships three n8n JSON files: Content Drafter, Telegram Capture, and QA Review. Download a file, import it in n8n, and run it.",
     ctaButton: "Browse workflow templates",
     ctaSecondary: "Read a walkthrough",
     loginTitle: "Welcome back",

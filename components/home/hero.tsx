@@ -57,8 +57,8 @@ export function Hero() {
             Import n8n workflows without building them from scratch
           </h1>
           <p className="mt-3 max-w-xl text-pretty text-sm leading-relaxed text-slate-300 sm:mt-4 sm:text-base md:text-lg">
-            FlowVault is a library of production-ready n8n JSON — Content Drafter,
-            Telegram Capture, QA Review. Download, import, run.
+            FlowVault ships three n8n JSON files: Content Drafter, Telegram Capture,
+            and QA Review. Download a file, import it in n8n, and run it.
           </p>
           <p className="mt-2 hidden max-w-xl text-sm leading-relaxed text-slate-400 sm:block">
             We already spent the weekend on the nodes. You import the file.

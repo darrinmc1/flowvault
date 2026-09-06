@@ -6,22 +6,22 @@ import { Reveal } from "@/components/home/reveal"
 const CARDS = [
   {
     kicker: "01",
-    title: "Importable n8n JSON. Counted honestly.",
-    body: "Three workflows are shipped: Content Drafter, Telegram Capture, and QA Review. A bundle exists. We will not sell you a library number we have not built.",
+    title: "The three files that ship now.",
+    body: "Content Drafter, Telegram Capture, and QA Review. The bundle is those three plus a connector. We will not sell you a library number we have not built.",
     href: "/products",
     cta: "Browse templates",
   },
   {
     kicker: "02",
     title: "Setup guides that match the nodes.",
-    body: "Each pack includes the JSON plus a setup walkthrough for credentials and destinations — Notion, Docs, Telegram, Slack. Not a screenshot of someone else’s canvas.",
+    body: "Each pack includes the JSON plus a setup walkthrough for credentials and destinations: Notion, Docs, Telegram, Slack.",
     href: "/lessons",
     cta: "Read the walkthroughs",
   },
   {
     kicker: "03",
-    title: "Customize after it runs, not before.",
-    body: "Import first. Add your API keys. Then tweak. The walkthroughs exist so you can change a node without guessing why it was there.",
+    title: "Import it, add your keys, then change a node.",
+    body: "Import first, add your API keys, then tweak. The walkthroughs show why each node is there so you can change one without guessing.",
     href: "/lessons/how-the-drafter-works",
     cta: "Open the Drafter walkthrough",
   },
@@ -34,7 +34,7 @@ export function WhatYouGet() {
         <Reveal>
           <p className="text-sm font-medium text-amber-400">What you get</p>
           <h2 className="mt-2 max-w-xl text-3xl font-bold tracking-tight text-white">
-            A workflow product, not a slogan stack.
+            The JSON files and the walkthroughs that match them.
           </h2>
         </Reveal>
       </div>
