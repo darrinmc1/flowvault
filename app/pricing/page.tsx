@@ -1,101 +1,145 @@
 import Link from "next/link"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { siteConfig } from "@/config/site.config"
 
-const plans = [
+export const metadata = {
+  title: `Pricing | ${siteConfig.name}`,
+  description: "Simple, transparent pricing. Start free and upgrade when you're ready.",
+}
+
+const tiers = [
   {
     name: "Free",
     price: "$0",
     period: "forever",
-    description: "Get started with courses and basic tools. No credit card needed.",
-    features: [
-      "All courses & lessons",
-      "Basic tools access",
-      "Community access",
-    ],
+    description: "Perfect for getting started and exploring the basics.",
     cta: "Get Started Free",
-    href: "/learn",
+    ctaHref: "/sign-up",
     highlighted: false,
-  },
-  {
-    name: "Early Adopter",
-    price: "$5",
-    period: "/month",
-    description: "Lock in early adopter pricing forever — never pay more.",
     features: [
-      "Everything in Free",
-      "All Pro template packs",
-      "All interactive tools",
-      "Price locked forever",
+      "Access to 5 free lessons",
+      "Basic progress tracking",
+      "Community access",
+      "Email support",
+      "1 active module at a time",
     ],
-    cta: "Lock in $5/mo",
-    href: "/improvements",
-    highlighted: true,
+    missing: [
+      "Full lesson library",
+      "XP & badge system",
+      "Priority support",
+      "Downloadable resources",
+      "Early access to new content",
+    ],
   },
   {
     name: "Pro",
-    price: "$10",
-    period: "/month",
-    description: "Full access when it launches. More features coming.",
+    price: "$12",
+    period: "per month",
+    description: "Everything you need to master your craft and track real progress.",
+    cta: "Start Pro — $12/mo",
+    ctaHref: "/sign-up",
+    highlighted: true,
     features: [
-      "Everything in Early Adopter",
-      "Advanced features & AI tools",
-      "New content priority",
-      "Priority support",
+      "Full lesson library (50+ lessons)",
+      "XP & badge system",
+      "Advanced progress tracking",
+      "Priority email support",
+      "Unlimited active modules",
+      "Downloadable resources",
+      "Early access to new content",
+      "Monthly live Q&A sessions",
     ],
-    cta: "Coming Soon",
-    href: "/improvements",
+    missing: [],
+  },
+  {
+    name: "Team",
+    price: "$49",
+    period: "per month",
+    description: "For teams who want to learn and grow together.",
+    cta: "Contact Us",
+    ctaHref: "/about",
     highlighted: false,
+    features: [
+      "Everything in Pro",
+      "Up to 10 team members",
+      "Team progress dashboard",
+      "Shared badge leaderboard",
+      "Dedicated account manager",
+      "Custom onboarding session",
+      "Bulk seat discounts",
+      "SSO & admin controls",
+    ],
+    missing: [],
   },
 ]
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <section className="border-b bg-white py-16 text-center">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-700 mb-3">Pricing</p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Simple pricing. No surprises.</h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Start free. Lock in early adopter pricing. Upgrade when you&apos;re ready.
+    <main className="min-h-screen bg-[#0a0a0f] text-white">
+      {/* Hero */}
+      <section className="py-20 px-4 text-center">
+        <div className="max-w-3xl mx-auto">
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 mb-6">
+            Simple Pricing
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+            Invest in your growth
+          </h1>
+          <p className="text-lg text-slate-400 max-w-xl mx-auto">
+            Start free, upgrade when you&apos;re ready. No hidden fees, no long-term contracts — cancel anytime.
           </p>
         </div>
       </section>
-      <section className="mx-auto max-w-6xl px-4 md:px-6 py-12">
-        <div className="grid gap-6 md:grid-cols-3 items-start">
-          {plans.map((plan) => (
-            <div key={plan.name} className={`rounded-xl border p-6 md:p-8 ${
-              plan.highlighted
-                ? "border-indigo-500 bg-white shadow-lg ring-1 ring-indigo-500 scale-105"
-                : "border-slate-200 bg-white"
-            }`}>
-              <h3 className="font-bold text-xl mb-2">{plan.name}</h3>
-              <div className="mb-4">
-                <span className="text-4xl font-bold">{plan.price}</span>
-                <span className="text-sm text-slate-500">{plan.period}</span>
-              </div>
-              <p className="text-sm text-slate-600 mb-6">{plan.description}</p>
-              {plan.name === "Early Adopter" && (
-                <p className="text-xs font-semibold uppercase tracking-wider text-indigo-600 mb-4">
-                  🎯 Early Adopter — Lock In Forever
-                </p>
+
+      {/* Pricing Cards */}
+      <section className="pb-20 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 items-start">
+          {tiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`rounded-2xl p-8 border flex flex-col ${
+                tier.highlighted
+                  ? "bg-indigo-600/20 border-indigo-500/60 shadow-lg shadow-indigo-500/10 relative"
+                  : "bg-white/5 border-white/10"
+              }`}
+            >
+              {tier.highlighted && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1 rounded-full text-xs font-bold bg-indigo-500 text-white shadow">
+                    Most Popular
+                  </span>
+                </div>
               )}
+              <div className="mb-6">
+                <h2 className="text-xl font-bold text-white mb-1">{tier.name}</h2>
+                <p className="text-slate-400 text-sm mb-4">{tier.description}</p>
+                <div className="flex items-end gap-1">
+                  <span className="text-4xl font-extrabold text-white">{tier.price}</span>
+                  <span className="text-slate-400 text-sm mb-1">/{tier.period}</span>
+                </div>
+              </div>
+
               <Link
-                href={plan.href}
-                className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold transition-colors mb-8 ${
-                  plan.highlighted
-                    ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                    : "border border-slate-300 text-slate-700 hover:bg-slate-50"
+                href={tier.ctaHref}
+                className={`block text-center py-3 px-6 rounded-xl font-semibold text-sm transition-all mb-8 ${
+                  tier.highlighted
+                    ? "bg-indigo-500 hover:bg-indigo-400 text-white"
+                    : "bg-white/10 hover:bg-white/20 text-white border border-white/10"
                 }`}
               >
-                {plan.cta} <ArrowRight className="h-4 w-4" />
+                {tier.cta}
               </Link>
-              <ul className="space-y-3">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm text-slate-600">
-                    <CheckCircle className={`h-4 w-4 mt-0.5 shrink-0 ${
-                      plan.highlighted ? "text-indigo-500" : "text-slate-400"
-                    }`} />
-                    {f}
+
+              <ul className="space-y-3 flex-1">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
+                    <span className="text-green-400 mt-0.5 shrink-0">✓</span>
+                    {feature}
+                  </li>
+                ))}
+                {tier.missing.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2 text-sm text-slate-600">
+                    <span className="mt-0.5 shrink-0">✗</span>
+                    {feature}
                   </li>
                 ))}
               </ul>
@@ -103,6 +147,92 @@ export default function PricingPage() {
           ))}
         </div>
       </section>
-    </div>
+
+      {/* Feature Comparison Table */}
+      <section className="pb-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-10 text-white">Full Feature Comparison</h2>
+          <div className="rounded-2xl border border-white/10 overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-white/5 border-b border-white/10">
+                  <th className="text-left px-6 py-4 text-slate-400 font-semibold">Feature</th>
+                  <th className="text-center px-4 py-4 text-slate-400 font-semibold">Free</th>
+                  <th className="text-center px-4 py-4 text-indigo-300 font-semibold">Pro</th>
+                  <th className="text-center px-4 py-4 text-slate-400 font-semibold">Team</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5">
+                {[
+                  ["Lessons available", "5", "50+", "50+"],
+                  ["Progress tracking", "Basic", "Advanced", "Advanced"],
+                  ["XP & badges", "✗", "✓", "✓"],
+                  ["Downloadable resources", "✗", "✓", "✓"],
+                  ["Priority support", "✗", "✓", "✓"],
+                  ["Early access to content", "✗", "✓", "✓"],
+                  ["Live Q&A sessions", "✗", "✓", "✓"],
+                  ["Team dashboard", "✗", "✗", "✓"],
+                  ["Dedicated account manager", "✗", "✗", "✓"],
+                  ["SSO & admin controls", "✗", "✗", "✓"],
+                ].map(([feature, free, pro, team]) => (
+                  <tr key={feature} className="hover:bg-white/[0.02] transition-colors">
+                    <td className="px-6 py-4 text-slate-300">{feature}</td>
+                    <td className="px-4 py-4 text-center text-slate-400">{free}</td>
+                    <td className="px-4 py-4 text-center text-indigo-300 font-medium">{pro}</td>
+                    <td className="px-4 py-4 text-center text-slate-400">{team}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="pb-20 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-10 text-white">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {[
+              {
+                q: "Can I cancel anytime?",
+                a: "Yes. You can cancel your subscription at any time from your account settings. You'll retain access until the end of your billing period.",
+              },
+              {
+                q: "Is there a free trial for Pro?",
+                a: "The Free plan lets you explore the platform with no time limit. When you're ready to unlock everything, upgrading to Pro takes seconds.",
+              },
+              {
+                q: "What payment methods do you accept?",
+                a: "We accept all major credit and debit cards via Stripe. All transactions are secure and encrypted.",
+              },
+              {
+                q: "Can I switch plans later?",
+                a: "Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect immediately.",
+              },
+            ].map(({ q, a }) => (
+              <div key={q} className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <h3 className="font-semibold text-white mb-2">{q}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="pb-24 px-4 text-center">
+        <div className="max-w-xl mx-auto bg-indigo-600/20 border border-indigo-500/30 rounded-2xl p-10">
+          <h2 className="text-2xl font-bold text-white mb-3">Ready to level up?</h2>
+          <p className="text-slate-400 mb-6 text-sm">Join thousands of learners already building skills on {siteConfig.name}.</p>
+          <Link
+            href="/sign-up"
+            className="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3 rounded-xl transition-all text-sm"
+          >
+            Start for Free
+          </Link>
+        </div>
+      </section>
+    </main>
   )
 }
