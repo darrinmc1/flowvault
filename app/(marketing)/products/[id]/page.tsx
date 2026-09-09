@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ALL_PRODUCTS, getProductById } from "@/data/products"
 import { siteConfig } from "@/config/site.config"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
+import { ProductCheckout } from "@/components/product-checkout"
 import { Check } from "lucide-react"
 
 export function generateStaticParams() {
@@ -68,20 +69,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <MarkdownRenderer content={product.content} />
         </article>
 
-        <div className="mt-8 flex items-center gap-6">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
           <div>
             <span className="text-4xl font-extrabold text-white">${product.price}</span>
             <span className="text-slate-400 ml-1">one-time</span>
           </div>
-          <form action="/api/checkout" method="POST">
-            <input type="hidden" name="productId" value={product.id} />
-            <button
-              type="submit"
-              className="px-8 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all"
-            >
-              Buy Now
-            </button>
-          </form>
+          <ProductCheckout productId={product.id} price={product.price} />
         </div>
 
         <div className="mt-6 flex flex-wrap gap-2">

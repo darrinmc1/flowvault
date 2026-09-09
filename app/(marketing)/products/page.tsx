@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
+import { WaitlistCta } from "@/components/waitlist-cta"
 
 export const metadata = {
   title: `Products | ${siteConfig.name}`,
@@ -56,10 +57,10 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
+        <div id="waitlist" className="text-center mb-14">
           <h1 className="text-4xl font-bold text-white mb-4">n8n Workflow JSON Packs</h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Download ready-to-import n8n workflow JSON files. Each pack includes fully documented workflows you can use immediately.
+            Download ready-to-import n8n workflow JSON files. Checkout is parked — join the waitlist on a pack. Stripe/Buy stay flip-ready.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 bg-green-900/30 border border-green-700/50 rounded-full px-4 py-2">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
@@ -114,14 +115,10 @@ export default function ProductsPage() {
                   </svg>
                   Download Free Sample JSON
                 </a>
-                <button
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-xl py-3 text-sm font-semibold transition-colors cursor-not-allowed opacity-75"
-                  disabled
-                  title="Checkout coming soon"
-                >
-                  Buy Now — ${product.price}
-                  <span className="ml-2 text-xs opacity-70">(Coming Soon)</span>
-                </button>
+                <WaitlistCta
+                  source={`catalog:${product.id}`}
+                  heading={`$${product.price} one-time when checkout opens. Join the waitlist — we will not charge you now.`}
+                />
               </div>
             </div>
           ))}
