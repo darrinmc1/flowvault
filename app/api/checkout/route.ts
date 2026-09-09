@@ -3,8 +3,14 @@ import { auth } from "@clerk/nextjs/server"
 import { stripe } from "@/lib/stripe"
 import { getProductById } from "@/data/products"
 import { getUserEntitlements, getSignedDownloadUrl } from "@/lib/entitlements"
+import { PAYMENTS_OPEN } from "@/lib/payments"
 
 export async function POST(req: NextRequest) {
+  if (!PAYMENTS_OPEN) {
+    const origin = req.headers.get("origin") ?? req.nextUrl.origin
+    return NextResponse.redirect(`${origin}/products#waitlist`, 303)
+  }
+
   if (!stripe) {
     return NextResponse.json(
       { error: "Stripe not configured" },
