@@ -15,6 +15,7 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${product.name} | ${siteConfig.name}`,
     description: product.description,
+    alternates: { canonical: `/products/${product.id}` },
   }
 }
 

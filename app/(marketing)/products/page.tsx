@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site.config"
 
 export const metadata = {
   title: `Products | ${siteConfig.name}`,
+  alternates: { canonical: "/products" },
 }
 
 const products = [

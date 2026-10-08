@@ -19,12 +19,7 @@ const outfit = Outfit({
   variable: "--font-outfit",
 })
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_DOMAIN
-    ? `https://${process.env.NEXT_PUBLIC_SITE_DOMAIN}`
-    : process.env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : `https://${siteConfig.domain}`
+const siteUrl = `https://${siteConfig.domain}`
 
 export const metadata: Metadata = {
   title: {
@@ -43,6 +38,20 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "FlowVault — n8n workflow templates you can inspect and adapt",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og.png"],
   },
   metadataBase: new URL(siteUrl),
 }

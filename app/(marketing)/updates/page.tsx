@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site.config"
 export const metadata = {
   title: `Updates | ${siteConfig.name}`,
   description: "Latest news and weekly updates.",
+  alternates: { canonical: "/updates" },
 }
 
 export default function UpdatesPage() {
