@@ -154,9 +154,9 @@ export default function LearnPage() {
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
-                        <span>Available with pack purchase</span>
-                        <Link href="/products" className="text-purple-400 hover:text-purple-300 underline underline-offset-2">
-                          View packs →
+                        <span>Coming soon</span>
+                        <Link href="/pricing" className="text-purple-400 hover:text-purple-300 underline underline-offset-2">
+                          Join the list →
                         </Link>
                       </div>
                     )}
@@ -168,15 +168,15 @@ export default function LearnPage() {
         </div>
 
         <div className="mt-12 bg-purple-900/20 border border-purple-700/40 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Ready to automate everything?</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Looking for more workflows?</h2>
           <p className="text-gray-400 mb-6">
-            Get instant access to 60+ production-ready n8n workflow JSON files across all our packs.
+            The library lists the workflow packs that are documented today. Paid access is not available yet.
           </p>
           <Link
-            href="/products"
+            href="/pricing"
             className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl px-6 py-3 font-semibold transition-colors"
           >
-            Browse Workflow Packs
+            Join the list
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

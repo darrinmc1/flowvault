@@ -157,13 +157,13 @@ const flowvaultBundle: Product = {
     "All three workflows in one package — Content Drafter, Telegram Capture Bot, and Reviewer/QA Agent — plus a bonus inter-workflow connector.",
   content: `## FlowVault Complete Bundle
 
-Get every FlowVault workflow at a discount, plus a bonus connector workflow that chains them together: capture an idea via Telegram, draft content from it, and run QA — all automatically.
+Get every FlowVault workflow, plus a bonus connector workflow that chains them together: capture an idea via Telegram, draft content from it, and run QA — all automatically.
 
 ### What You Get
 
-- **AI Content Drafter Pack** (normally $69)
-- **Telegram Capture Bot** (normally $39)
-- **Reviewer / QA Agent** (normally $49)
+- **AI Content Drafter Pack**
+- **Telegram Capture Bot**
+- **Reviewer / QA Agent**
 - **Bonus: Pipeline Connector Workflow** — chains capture → draft → review into a single automated pipeline
 - **All setup guides (PDF)**
 - **Priority email support for 90 days**
@@ -177,7 +177,7 @@ Get every FlowVault workflow at a discount, plus a bonus connector workflow that
 
 ### Who It's For
 
-Solopreneurs who want the complete content automation stack from day one. Save $28 vs. buying individually.`,
+Solopreneurs who want the complete content automation stack from day one.`,
   price: 129,
   stripePriceId: "price_1U4Jt4PVyAgWnzPrLdQLTFEI",
   features: [
@@ -187,7 +187,6 @@ Solopreneurs who want the complete content automation stack from day one. Save $
     "Capture → Draft → Review in one flow",
     "90-day priority email support",
     "Lifetime updates",
-    "Save $28 vs. individual purchase",
   ],
   category: "Bundle",
   downloadPath: "products/flowvault-bundle.zip",

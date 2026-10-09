@@ -23,8 +23,8 @@ export default function TermsPage() {
           </p>
           <h2>Payments and Refunds</h2>
           <p>
-            All purchases are processed through Stripe. Refund requests within 14
-            days of purchase will be honored.
+            Paid access is not offered on this site yet. When it is, payments
+            will be processed through Stripe, and refund terms will be stated then.
           </p>
           <h2>Contact</h2>
           <p>

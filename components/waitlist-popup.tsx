@@ -107,8 +107,7 @@ export function WaitlistPopup() {
               </h2>
 
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                New n8n automation templates and tips every week. Join early and
-                get founding member pricing when we launch premium workflows.
+                New n8n automation templates and tips every week.
               </p>
 
               <form

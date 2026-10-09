@@ -77,8 +77,8 @@ export default function MarketingHomePage() {
 
       <section className="mx-auto w-full max-w-3xl px-6 py-20 text-center">
         <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-400">Early access</p>
-        <h2 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">Build the library first. Add paid access later.</h2>
-        <p className="mb-8 text-lg text-slate-400">Checkout is not live, so FlowVault is not publishing paid plans yet. The immediate job is to make the workflow library useful, clear and testable.</p>
+        <h2 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">Build the library first.</h2>
+        <p className="mb-8 text-lg text-slate-400">Paid access is not available yet. The immediate job is to make the workflow library useful, clear and testable.</p>
         <Link href="/products" className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-10 py-4 text-lg font-bold text-white transition-all hover:bg-indigo-500">Browse the current workflows</Link>
       </section>
     </main>
