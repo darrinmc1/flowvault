@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site.config"
 export const metadata = {
   title: `Lessons | ${siteConfig.name}`,
   description: "Browse all available lessons.",
+  alternates: { canonical: "/lessons" },
 }
 
 export default function LessonsPage() {

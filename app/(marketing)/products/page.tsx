@@ -1,15 +1,16 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
+import { ComingSoonSignup } from "@/components/coming-soon-signup"
 
 export const metadata = {
   title: `Products | ${siteConfig.name}`,
+  alternates: { canonical: "/products" },
 }
 
 const products = [
   {
     id: "starter-pack",
     name: "n8n Starter Pack",
-    price: 39,
     description: "Essential workflows to get you started with n8n automation. Perfect for beginners.",
     workflows: 10,
     badge: "POPULAR",
@@ -20,10 +21,9 @@ const products = [
   {
     id: "business-pack",
     name: "n8n Business Pack",
-    price: 69,
     description: "Advanced workflows for business automation. CRM, invoicing, and team collaboration.",
     workflows: 25,
-    badge: "BEST VALUE",
+    badge: null,
     previewAvailable: true,
     sampleFile: "/samples/business-sample.json",
     features: ["25 ready-to-use workflows", "CRM integrations", "Invoice automation", "Team notifications", "Priority support"],
@@ -31,7 +31,6 @@ const products = [
   {
     id: "ecommerce-pack",
     name: "n8n E-Commerce Pack",
-    price: 49,
     description: "Streamline your online store with automated order processing, inventory, and customer workflows.",
     workflows: 15,
     badge: null,
@@ -42,7 +41,6 @@ const products = [
   {
     id: "ultimate-pack",
     name: "n8n Ultimate Bundle",
-    price: 129,
     description: "Everything you need. All packs combined plus exclusive enterprise-grade workflows.",
     workflows: 60,
     badge: "ALL INCLUSIVE",
@@ -87,9 +85,7 @@ export default function ProductsPage() {
               </div>
 
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-4xl font-bold text-white">${product.price}</span>
-                <span className="text-gray-500 text-sm">one-time</span>
-                <span className="ml-auto text-purple-400 text-sm font-medium">{product.workflows} workflows</span>
+                <span className="text-purple-400 text-sm font-medium">{product.workflows} workflows</span>
               </div>
 
               <ul className="space-y-2 mb-8 flex-1">
@@ -114,21 +110,17 @@ export default function ProductsPage() {
                   </svg>
                   Download Free Sample JSON
                 </a>
-                <button
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-xl py-3 text-sm font-semibold transition-colors cursor-not-allowed opacity-75"
-                  disabled
-                  title="Checkout coming soon"
-                >
-                  Buy Now — ${product.price}
-                  <span className="ml-2 text-xs opacity-70">(Coming Soon)</span>
-                </button>
               </div>
             </div>
           ))}
         </div>
 
+        <div className="mt-16">
+          <ComingSoonSignup />
+        </div>
+
         <div className="mt-16 bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Want to see a workflow before buying?</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Want to see a workflow first?</h2>
           <p className="text-gray-400 mb-6">
             Check out our free fundamentals lesson — it includes a complete downloadable n8n workflow JSON you can import right now.
           </p>

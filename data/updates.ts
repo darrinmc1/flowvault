@@ -22,10 +22,10 @@ We built FlowVault because we spent too many weekends debugging n8n nodes instea
 
 ### What's Available at Launch
 
-- **AI Content Drafter Pack** ($69) — topic → blog + social + newsletter in one run
-- **Telegram Capture Bot** ($39) — send ideas to Telegram, get them tagged and saved automatically
-- **Reviewer / QA Agent** ($49) — proofreading, link checking, and structure validation before you hit publish
-- **Complete Bundle** ($129) — all three plus a pipeline connector that chains them together
+- **AI Content Drafter Pack** — topic → blog + social + newsletter in one run
+- **Telegram Capture Bot** — send ideas to Telegram, get them tagged and saved automatically
+- **Reviewer / QA Agent** — proofreading, link checking, and structure validation before you hit publish
+- **Complete Bundle** — all three plus a pipeline connector that chains them together
 
 ### 10 Free Lessons
 

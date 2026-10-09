@@ -72,8 +72,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               <li><strong>Professional services</strong> — consulting, coaching, or custom work (governed by separate agreement)</li>
             </ul>
             <p className="text-slate-700">
-              All prices are listed in US Dollars (USD) unless otherwise stated. We reserve the right to change prices
-              at any time, but changes will not affect active subscriptions until the next billing period.
+              Paid products and subscriptions are not offered on the site yet.
             </p>
           </section>
 
