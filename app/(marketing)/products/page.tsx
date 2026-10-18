@@ -1,149 +1,98 @@
 import Link from "next/link"
+import { Check } from "lucide-react"
+import { ALL_PRODUCTS } from "@/data/products"
+import { flowVaultFaqs } from "@/lib/aeo"
 import { siteConfig } from "@/config/site.config"
+import { BuyButton } from "@/components/buy-button"
 
 export const metadata = {
   title: `Products | ${siteConfig.name}`,
+  description: "One-time n8n workflow packs: AI Content Drafter, Telegram Capture Bot, Reviewer/QA Agent, and the complete bundle.",
 }
-
-const products = [
-  {
-    id: "starter-pack",
-    name: "n8n Starter Pack",
-    price: 39,
-    description: "Essential workflows to get you started with n8n automation. Perfect for beginners.",
-    workflows: 10,
-    badge: "POPULAR",
-    previewAvailable: true,
-    sampleFile: "/samples/starter-sample.json",
-    features: ["10 ready-to-use workflows", "Email automation", "Slack integrations", "Basic HTTP requests", "Documentation included"],
-  },
-  {
-    id: "business-pack",
-    name: "n8n Business Pack",
-    price: 69,
-    description: "Advanced workflows for business automation. CRM, invoicing, and team collaboration.",
-    workflows: 25,
-    badge: "BEST VALUE",
-    previewAvailable: true,
-    sampleFile: "/samples/business-sample.json",
-    features: ["25 ready-to-use workflows", "CRM integrations", "Invoice automation", "Team notifications", "Priority support"],
-  },
-  {
-    id: "ecommerce-pack",
-    name: "n8n E-Commerce Pack",
-    price: 49,
-    description: "Streamline your online store with automated order processing, inventory, and customer workflows.",
-    workflows: 15,
-    badge: null,
-    previewAvailable: true,
-    sampleFile: "/samples/ecommerce-sample.json",
-    features: ["15 ready-to-use workflows", "Order processing", "Inventory sync", "Customer emails", "Shopify & WooCommerce"],
-  },
-  {
-    id: "ultimate-pack",
-    name: "n8n Ultimate Bundle",
-    price: 129,
-    description: "Everything you need. All packs combined plus exclusive enterprise-grade workflows.",
-    workflows: 60,
-    badge: "ALL INCLUSIVE",
-    previewAvailable: true,
-    sampleFile: "/samples/ultimate-sample.json",
-    features: ["60+ ready-to-use workflows", "All pack contents", "Enterprise integrations", "AI & LLM workflows", "Lifetime updates"],
-  },
-]
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h1 className="text-4xl font-bold text-white mb-4">n8n Workflow JSON Packs</h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Download ready-to-import n8n workflow JSON files. Each pack includes fully documented workflows you can use immediately.
+    <div className="min-h-screen bg-slate-950 px-4 py-20 text-slate-50">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+            One-time packs
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 bg-green-900/30 border border-green-700/50 rounded-full px-4 py-2">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            <span className="text-green-400 text-sm font-medium">Free sample JSON included with every pack preview</span>
-          </div>
+          <h1 className="mb-4 text-4xl font-bold text-white">n8n workflow packs</h1>
+          <p className="mx-auto max-w-2xl text-lg text-slate-400">
+            Four USD packs. Download the workflow JSON, import it into your own n8n instance, and follow the setup guide.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {products.map((product) => (
-            <div
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {ALL_PRODUCTS.map((product) => (
+            <article
               key={product.id}
-              className="relative bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col hover:border-purple-700/60 transition-colors"
+              className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-8"
             >
-              {product.badge && (
-                <div className="absolute -top-3 left-6">
-                  <span className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                    {product.badge}
-                  </span>
-                </div>
-              )}
-
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white mb-2">{product.name}</h2>
-                <p className="text-gray-400 text-sm leading-relaxed">{product.description}</p>
+                <p className="mb-3 text-3xl" aria-hidden="true">
+                  {product.emoji}
+                </p>
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  <Link href={`/products/${product.id}`} className="hover:text-cyan-300">
+                    {product.name}
+                  </Link>
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-400">{product.description}</p>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-6">
+              <div className="mb-6 flex items-baseline gap-2">
                 <span className="text-4xl font-bold text-white">${product.price}</span>
-                <span className="text-gray-500 text-sm">one-time</span>
-                <span className="ml-auto text-purple-400 text-sm font-medium">{product.workflows} workflows</span>
+                <span className="text-sm text-slate-500">USD, one-time</span>
               </div>
 
-              <ul className="space-y-2 mb-8 flex-1">
-                {product.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <svg className="w-4 h-4 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+              <ul className="mb-8 flex-1 space-y-2">
+                {product.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <div className="space-y-3">
-                <a
-                  href={product.sampleFile}
-                  download
-                  className="flex items-center justify-center gap-2 w-full border border-purple-700 text-purple-400 hover:bg-purple-900/30 rounded-xl py-3 text-sm font-medium transition-colors"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                  </svg>
-                  Download Free Sample JSON
-                </a>
-                <button
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-xl py-3 text-sm font-semibold transition-colors cursor-not-allowed opacity-75"
-                  disabled
-                  title="Checkout coming soon"
-                >
-                  Buy Now — ${product.price}
-                  <span className="ml-2 text-xs opacity-70">(Coming Soon)</span>
-                </button>
-              </div>
-            </div>
+              <BuyButton sku={product.lookupKey} price={product.price} available={product.available} />
+
+              <Link
+                href={`/products/${product.id}`}
+                className="mt-4 text-center text-sm text-slate-400 hover:text-cyan-300"
+              >
+                View the setup details
+              </Link>
+            </article>
           ))}
         </div>
 
-        <div className="mt-16 bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Want to see a workflow before buying?</h2>
-          <p className="text-gray-400 mb-6">
-            Check out our free fundamentals lesson — it includes a complete downloadable n8n workflow JSON you can import right now.
+        <section className="mx-auto mt-16 max-w-3xl">
+          <h2 className="mb-6 text-2xl font-bold text-white">FAQ</h2>
+          <div className="space-y-3">
+            {flowVaultFaqs.map((faq) => (
+              <details key={faq.question} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-white">{faq.question}</summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-400">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-16 rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+          <h2 className="mb-3 text-2xl font-bold text-white">Want to inspect a workflow first?</h2>
+          <p className="mb-6 text-slate-400">
+            The lessons explain how the workflows are put together so you can see the pattern before you buy a pack.
           </p>
           <Link
             href="/learn"
-            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-xl px-6 py-3 font-semibold transition-colors"
+            className="inline-flex items-center justify-center rounded-xl bg-cyan-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-cyan-500"
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            View Free Lesson with Sample JSON
+            Browse the lessons
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

@@ -1,7 +1,11 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
+import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record-disclosure"
 
 export function Footer() {
+  const supportEmail = getSupportEmail()
+
   return (
     <footer className="border-t border-white/10 bg-slate-950/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -41,14 +45,16 @@ export function Footer() {
               Connect
             </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="text-sm text-slate-400 hover:text-cyan-400 transition-colors"
-                >
-                  Email Us
-                </a>
-              </li>
+              {supportEmail ? (
+                <li>
+                  <a
+                    href={`mailto:${supportEmail}`}
+                    className="text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+                  >
+                    Email Us
+                  </a>
+                </li>
+              ) : null}
               {process.env.NEXT_PUBLIC_SHOW_GITHUB_FOOTER === "true" && (
                 <li>
                   <a
@@ -65,7 +71,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5">
+        <MerchantOfRecordDisclosure className="mt-10 max-w-3xl" />
+
+        <div className="mt-8 pt-8 border-t border-white/5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-slate-500">
               &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
