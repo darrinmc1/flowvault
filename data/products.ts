@@ -8,7 +8,11 @@ export interface Product {
   description: string
   content: string
   price: number
-  stripePriceId: string
+  /**
+   * Stripe Price lookup key. Checkout resolves this on the server.
+   * Clients never send a price id.
+   */
+  lookupKey: string
   features: string[]
   category: string
   downloadPath: string
@@ -16,6 +20,12 @@ export interface Product {
   tags: string[]
   dateAdded: string
 }
+
+// Retired sandbox price IDs. Do not use them, and do not delete the objects in Stripe.
+// AI Content Drafter — price_1U4Jt1PVyAgWnzPryxPUEIYK
+// Telegram Capture Bot — price_1U4Jt2PVyAgWnzPrZTn95WWp
+// Reviewer / QA Agent — price_1U4Jt3PVyAgWnzPrkR0GdkSd
+// FlowVault Complete Bundle — price_1U4Jt4PVyAgWnzPrLdQLTFEI
 
 // ---------------------------------------------------------------------------
 // Products
@@ -47,7 +57,7 @@ This workflow connects an incoming trigger (webhook, schedule, or Telegram messa
 
 Solo creators, indie hackers, and one-person marketing teams who need a first draft fast so they can spend their time editing, not staring at a blank page.`,
   price: 69,
-  stripePriceId: "price_1U4Jt1PVyAgWnzPryxPUEIYK",
+  lookupKey: "flowvault_drafter_once_usd69",
   features: [
     "Complete n8n workflow JSON",
     "Blog + social + newsletter in one run",
@@ -90,7 +100,7 @@ Turn your Telegram chat into a frictionless capture inbox. Send a text, voice no
 
 Solopreneurs who capture ideas on the go and want them organized without switching apps or copy-pasting later.`,
   price: 39,
-  stripePriceId: "price_1U4Jt2PVyAgWnzPrZTn95WWp",
+  lookupKey: "flowvault_telegram_once_usd39",
   features: [
     "Complete n8n workflow JSON",
     "Telegram Bot setup walkthrough",
@@ -133,7 +143,7 @@ Ship fewer typos and broken links. This workflow takes a draft (Markdown, Notion
 
 Content creators and small teams who want a consistent quality gate without hiring an editor for every post.`,
   price: 49,
-  stripePriceId: "price_1U4Jt3PVyAgWnzPrkR0GdkSd",
+  lookupKey: "flowvault_reviewer_once_usd49",
   features: [
     "Complete n8n workflow JSON",
     "LLM-powered proofreading",
@@ -179,7 +189,7 @@ Get every FlowVault workflow at a discount, plus a bonus connector workflow that
 
 Solopreneurs who want the complete content automation stack from day one. Save $28 vs. buying individually.`,
   price: 129,
-  stripePriceId: "price_1U4Jt4PVyAgWnzPrLdQLTFEI",
+  lookupKey: "flowvault_bundle_once_usd129",
   features: [
     "All 3 workflow JSONs",
     "Bonus pipeline connector workflow",
@@ -213,4 +223,11 @@ export const PRODUCT_MAP = Object.fromEntries(
 
 export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
+}
+
+/** Resolve a catalog sku (product id or lookup key). Stripe price ids are rejected. */
+export function getProductBySku(sku: string): Product | undefined {
+  const key = sku.trim()
+  if (!key || key.startsWith("price_")) return undefined
+  return ALL_PRODUCTS.find((product) => product.id === key || product.lookupKey === key)
 }

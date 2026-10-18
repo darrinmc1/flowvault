@@ -35,8 +35,7 @@ export const flowVaultFaqs = [
   },
   {
     question: "How much do FlowVault workflows cost?",
-    answer:
-      "Workflows are sold as one-time packs: AI Content Drafter Pack $69, Telegram Capture Bot $39, Reviewer / QA Agent $49, and the Complete Bundle $129. Optional membership plans start at $9/month.",
+    answer: `Workflows are sold as one-time USD packs: ${ALL_PRODUCTS.map((product) => `${product.name} $${product.price}`).join(", ")}. There is no membership.`,
   },
   {
     question: "What does the FlowVault Complete Bundle include?",
@@ -82,10 +81,7 @@ ${updateBlock}
 
 ## Pricing
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+${ALL_PRODUCTS.map((product) => `- ${product.name}: USD ${product.price} one-time — ${base}/products/${product.id}`).join("\n")}
 
 ## FAQs
 

@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `About | ${siteConfig.name}`,
@@ -6,6 +7,8 @@ export const metadata = {
 }
 
 export default function AboutPage() {
+  const supportEmail = getSupportEmail()
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className={`${siteConfig.theme.heroGradient} py-16`}>
@@ -38,14 +41,20 @@ export default function AboutPage() {
             customize it.
           </p>
           <p className="text-slate-300 leading-relaxed">
-            Questions or workflow requests? Reach out at{" "}
-            <a
-              href={`mailto:${siteConfig.contact.email}`}
-              className="text-cyan-400 hover:underline"
-            >
-              {siteConfig.contact.email}
-            </a>
-            .
+            Questions or workflow requests?
+            {supportEmail ? (
+              <>
+                {" "}
+                Reach out at{" "}
+                <a
+                  href={`mailto:${supportEmail}`}
+                  className="text-cyan-400 hover:underline"
+                >
+                  {supportEmail}
+                </a>
+                .
+              </>
+            ) : null}
           </p>
         </article>
       </div>
