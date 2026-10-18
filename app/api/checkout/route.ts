@@ -29,15 +29,6 @@ export async function POST(req: NextRequest) {
   // retired in data/products.ts; nothing is deleted in Stripe.
   if (!isStripeEnabled()) return paymentsDisabled()
 
-  if (!stripe) {
-    return NextResponse.json({ error: "Stripe not configured" }, { status: 503 })
-  }
-
-  const { userId } = await auth()
-  if (!userId) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 })
-  }
-
   const sku = await readSku(req)
   if (!sku) {
     return NextResponse.json({ error: "Missing sku" }, { status: 400 })
@@ -47,6 +38,19 @@ export async function POST(req: NextRequest) {
   const site = getStripeSiteKey()
   if (!product || !product.lookupKey.startsWith(`${site}_`)) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 })
+  }
+
+  if (!product.available) {
+    return NextResponse.json({ error: "This product is not available yet" }, { status: 503 })
+  }
+
+  if (!stripe) {
+    return NextResponse.json({ error: "Stripe not configured" }, { status: 503 })
+  }
+
+  const { userId } = await auth()
+  if (!userId) {
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 })
   }
 
   let priceId: string

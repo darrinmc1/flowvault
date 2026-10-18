@@ -75,7 +75,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <span className="text-slate-400 ml-1">USD, one-time</span>
           </div>
           <div className="w-full max-w-md">
-            <BuyButton sku={product.lookupKey} price={product.price} />
+            <BuyButton sku={product.lookupKey} price={product.price} available={product.available} />
           </div>
         </div>
 

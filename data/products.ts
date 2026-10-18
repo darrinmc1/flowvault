@@ -16,6 +16,11 @@ export interface Product {
   features: string[]
   category: string
   downloadPath: string
+  /**
+   * False until the file at downloadPath is a real deliverable.
+   * Buy stays "Coming soon" while this is false, even if Stripe is enabled.
+   */
+  available: boolean
   emoji: string
   tags: string[]
   dateAdded: string
@@ -64,10 +69,11 @@ Solo creators, indie hackers, and one-person marketing teams who need a first dr
     "5 tested prompt templates",
     "Notion, Google Docs, & Markdown output",
     "Step-by-step setup guide (PDF)",
-    "Lifetime updates",
+    "Updates to this workflow included",
   ],
   category: "Content Automation",
   downloadPath: "products/ai-content-drafter.zip",
+  available: false,
   emoji: "✍️",
   tags: ["content", "ai", "blog", "social", "newsletter"],
   dateAdded: "2026-07-01",
@@ -111,6 +117,7 @@ Solopreneurs who capture ideas on the go and want them organized without switchi
   ],
   category: "Data Capture",
   downloadPath: "products/telegram-capture-bot.zip",
+  available: false,
   emoji: "\u{1F4E5}",
   tags: ["telegram", "capture", "bot", "cms", "notion"],
   dateAdded: "2026-07-01",
@@ -155,6 +162,7 @@ Content creators and small teams who want a consistent quality gate without hiri
   ],
   category: "QA & Review",
   downloadPath: "products/reviewer-qa-agent.zip",
+  available: false,
   emoji: "\u{1F50D}",
   tags: ["qa", "review", "proofreading", "links", "publishing"],
   dateAdded: "2026-07-01",
@@ -196,11 +204,12 @@ Solopreneurs who want the complete content automation stack from day one. Save $
     "All setup guides (PDF)",
     "Capture → Draft → Review in one flow",
     "90-day priority email support",
-    "Lifetime updates",
+    "Updates to these workflows included",
     "Save $28 vs. individual purchase",
   ],
   category: "Bundle",
   downloadPath: "products/flowvault-bundle.zip",
+  available: false,
   emoji: "\u{1F4E6}",
   tags: ["bundle", "content", "capture", "qa", "pipeline"],
   dateAdded: "2026-07-01",

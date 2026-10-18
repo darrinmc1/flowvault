@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site.config"
+import { REFUND_POLICY } from "@/lib/refund-policy"
 import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
@@ -25,8 +26,7 @@ export default function TermsPage() {
           </p>
           <h2>Payments and Refunds</h2>
           <p>
-            All purchases are processed through Stripe. Refund requests within 14
-            days of purchase will be honored.
+            Pack prices are in US dollars. All purchases are processed through Stripe. {REFUND_POLICY}
           </p>
           <h2>Contact</h2>
           <p>

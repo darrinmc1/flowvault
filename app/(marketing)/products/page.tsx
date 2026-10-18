@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Check } from "lucide-react"
 import { ALL_PRODUCTS } from "@/data/products"
+import { flowVaultFaqs } from "@/lib/aeo"
 import { siteConfig } from "@/config/site.config"
 import { BuyButton } from "@/components/buy-button"
 
@@ -55,7 +56,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
 
-              <BuyButton sku={product.lookupKey} price={product.price} />
+              <BuyButton sku={product.lookupKey} price={product.price} available={product.available} />
 
               <Link
                 href={`/products/${product.id}`}
@@ -66,6 +67,18 @@ export default function ProductsPage() {
             </article>
           ))}
         </div>
+
+        <section className="mx-auto mt-16 max-w-3xl">
+          <h2 className="mb-6 text-2xl font-bold text-white">FAQ</h2>
+          <div className="space-y-3">
+            {flowVaultFaqs.map((faq) => (
+              <details key={faq.question} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-white">{faq.question}</summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-400">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
 
         <div className="mt-16 rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
           <h2 className="mb-3 text-2xl font-bold text-white">Want to inspect a workflow first?</h2>

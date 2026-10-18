@@ -6,6 +6,7 @@
 // =============================================================================
 
 import { siteConfig } from "@/config/site.config"
+import { REFUND_POLICY } from "@/lib/refund-policy"
 import { ALL_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
@@ -36,6 +37,10 @@ export const flowVaultFaqs = [
   {
     question: "How much do FlowVault workflows cost?",
     answer: `Workflows are sold as one-time USD packs: ${ALL_PRODUCTS.map((product) => `${product.name} $${product.price}`).join(", ")}. There is no membership.`,
+  },
+  {
+    question: "What is the refund policy?",
+    answer: REFUND_POLICY,
   },
   {
     question: "What does the FlowVault Complete Bundle include?",

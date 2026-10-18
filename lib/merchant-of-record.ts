@@ -1,5 +1,5 @@
 /**
- * Locked TTPN Pty Ltd merchant-of-record copy.
+ * Exact TTPN Pty Ltd merchant-of-record copy.
  * Use this string in the footer and directly under every Buy button.
  */
 export const MERCHANT_OF_RECORD_DISCLOSURE =

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { REFUND_POLICY } from "@/lib/refund-policy"
 
 interface TermsPageProps {
   siteName: string
@@ -99,13 +100,8 @@ export function TermsPage({ siteName, domain, supportEmail, companyName = siteNa
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">4. Refund Policy</h2>
             <p className="text-slate-700 mb-3">
-              We want you to be satisfied with your purchase. Our refund policy is as follows:
+              {REFUND_POLICY}
             </p>
-            <ul className="list-disc pl-6 mb-4 text-slate-700 space-y-1">
-              <li><strong>Digital courses &amp; templates:</strong> Due to the digital nature of our products, all sales are final. If you experience technical issues preventing access, contact us and we will resolve the issue or issue a refund at our discretion.</li>
-              <li><strong>Subscription plans:</strong> You may cancel at any time. Refunds are provided on a case-by-case basis. If you cancel within 14 days of signing up and have consumed minimal content, we may issue a prorated refund.</li>
-              <li><strong>Billing errors:</strong> Duplicate or incorrect charges will be refunded in full upon verification.</li>
-            </ul>
             <p className="text-slate-700">
               To request a refund, contact us
               {supportEmail ? (

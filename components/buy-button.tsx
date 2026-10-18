@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record-disclosure"
+import { RefundPolicyNote } from "@/components/refund-policy-note"
 import { NewsletterForm } from "@/components/newsletter-form"
 
 const checkoutEnabled = process.env.NEXT_PUBLIC_STRIPE_ENABLED === "true"
@@ -9,16 +10,21 @@ const checkoutEnabled = process.env.NEXT_PUBLIC_STRIPE_ENABLED === "true"
 export function BuyButton({
   sku,
   price,
+  available,
 }: {
   /** Catalog lookup key, for example flowvault_drafter_once_usd69. Never a Stripe price id. */
   sku: string
   price: number
+  /** Catalog flag. Unavailable packs stay on Coming soon even when Stripe is enabled. */
+  available: boolean
 }) {
   const [pending, setPending] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const onSale = checkoutEnabled && available
+
   async function startCheckout() {
-    if (process.env.NEXT_PUBLIC_STRIPE_ENABLED !== "true") return
+    if (process.env.NEXT_PUBLIC_STRIPE_ENABLED !== "true" || !available) return
     setPending(true)
     setError(null)
     try {
@@ -46,7 +52,7 @@ export function BuyButton({
 
   return (
     <div className="w-full space-y-3">
-      {checkoutEnabled ? (
+      {onSale ? (
         <button
           type="button"
           onClick={startCheckout}
@@ -67,8 +73,9 @@ export function BuyButton({
       )}
 
       <MerchantOfRecordDisclosure />
+      <RefundPolicyNote />
 
-      {checkoutEnabled ? null : (
+      {onSale ? null : (
         <div className="rounded-xl border border-white/10 bg-white/5 p-4">
           <p className="mb-3 text-sm text-slate-300">
             Join the waitlist and we&apos;ll let you know when checkout opens.
