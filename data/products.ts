@@ -8,14 +8,29 @@ export interface Product {
   description: string
   content: string
   price: number
-  stripePriceId: string
+  /**
+   * Stripe Price lookup key. Checkout resolves this on the server.
+   * Clients never send a price id.
+   */
+  lookupKey: string
   features: string[]
   category: string
   downloadPath: string
+  /**
+   * False until the file at downloadPath is a real deliverable.
+   * Buy stays "Coming soon" while this is false, even if Stripe is enabled.
+   */
+  available: boolean
   emoji: string
   tags: string[]
   dateAdded: string
 }
+
+// Retired sandbox price IDs. Do not use them, and do not delete the objects in Stripe.
+// AI Content Drafter — price_1U4Jt1PVyAgWnzPryxPUEIYK
+// Telegram Capture Bot — price_1U4Jt2PVyAgWnzPrZTn95WWp
+// Reviewer / QA Agent — price_1U4Jt3PVyAgWnzPrkR0GdkSd
+// FlowVault Complete Bundle — price_1U4Jt4PVyAgWnzPrLdQLTFEI
 
 // ---------------------------------------------------------------------------
 // Products
@@ -47,17 +62,18 @@ This workflow connects an incoming trigger (webhook, schedule, or Telegram messa
 
 Solo creators, indie hackers, and one-person marketing teams who need a first draft fast so they can spend their time editing, not staring at a blank page.`,
   price: 69,
-  stripePriceId: "price_1U4Jt1PVyAgWnzPryxPUEIYK",
+  lookupKey: "flowvault_drafter_once_usd69",
   features: [
     "Complete n8n workflow JSON",
     "Blog + social + newsletter in one run",
     "5 tested prompt templates",
     "Notion, Google Docs, & Markdown output",
     "Step-by-step setup guide (PDF)",
-    "Lifetime updates",
+    "Updates to this workflow included",
   ],
   category: "Content Automation",
   downloadPath: "products/ai-content-drafter.zip",
+  available: false,
   emoji: "✍️",
   tags: ["content", "ai", "blog", "social", "newsletter"],
   dateAdded: "2026-07-01",
@@ -90,7 +106,7 @@ Turn your Telegram chat into a frictionless capture inbox. Send a text, voice no
 
 Solopreneurs who capture ideas on the go and want them organized without switching apps or copy-pasting later.`,
   price: 39,
-  stripePriceId: "price_1U4Jt2PVyAgWnzPrZTn95WWp",
+  lookupKey: "flowvault_telegram_once_usd39",
   features: [
     "Complete n8n workflow JSON",
     "Telegram Bot setup walkthrough",
@@ -101,6 +117,7 @@ Solopreneurs who capture ideas on the go and want them organized without switchi
   ],
   category: "Data Capture",
   downloadPath: "products/telegram-capture-bot.zip",
+  available: false,
   emoji: "\u{1F4E5}",
   tags: ["telegram", "capture", "bot", "cms", "notion"],
   dateAdded: "2026-07-01",
@@ -133,7 +150,7 @@ Ship fewer typos and broken links. This workflow takes a draft (Markdown, Notion
 
 Content creators and small teams who want a consistent quality gate without hiring an editor for every post.`,
   price: 49,
-  stripePriceId: "price_1U4Jt3PVyAgWnzPrkR0GdkSd",
+  lookupKey: "flowvault_reviewer_once_usd49",
   features: [
     "Complete n8n workflow JSON",
     "LLM-powered proofreading",
@@ -145,6 +162,7 @@ Content creators and small teams who want a consistent quality gate without hiri
   ],
   category: "QA & Review",
   downloadPath: "products/reviewer-qa-agent.zip",
+  available: false,
   emoji: "\u{1F50D}",
   tags: ["qa", "review", "proofreading", "links", "publishing"],
   dateAdded: "2026-07-01",
@@ -179,18 +197,19 @@ Get every FlowVault workflow at a discount, plus a bonus connector workflow that
 
 Solopreneurs who want the complete content automation stack from day one. Save $28 vs. buying individually.`,
   price: 129,
-  stripePriceId: "price_1U4Jt4PVyAgWnzPrLdQLTFEI",
+  lookupKey: "flowvault_bundle_once_usd129",
   features: [
     "All 3 workflow JSONs",
     "Bonus pipeline connector workflow",
     "All setup guides (PDF)",
     "Capture → Draft → Review in one flow",
     "90-day priority email support",
-    "Lifetime updates",
+    "Updates to these workflows included",
     "Save $28 vs. individual purchase",
   ],
   category: "Bundle",
   downloadPath: "products/flowvault-bundle.zip",
+  available: false,
   emoji: "\u{1F4E6}",
   tags: ["bundle", "content", "capture", "qa", "pipeline"],
   dateAdded: "2026-07-01",
@@ -213,4 +232,11 @@ export const PRODUCT_MAP = Object.fromEntries(
 
 export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
+}
+
+/** Resolve a catalog sku (product id or lookup key). Stripe price ids are rejected. */
+export function getProductBySku(sku: string): Product | undefined {
+  const key = sku.trim()
+  if (!key || key.startsWith("price_")) return undefined
+  return ALL_PRODUCTS.find((product) => product.id === key || product.lookupKey === key)
 }

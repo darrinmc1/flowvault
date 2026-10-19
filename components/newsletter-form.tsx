@@ -2,7 +2,15 @@
 
 import { useState } from "react"
 
-export function NewsletterForm({ source = "homepage" }: { source?: string }) {
+export function NewsletterForm({
+  source = "homepage",
+  compact = false,
+  submitLabel = "Subscribe",
+}: {
+  source?: string
+  compact?: boolean
+  submitLabel?: string
+}) {
   const [email, setEmail] = useState("")
   const [website, setWebsite] = useState("") // honeypot
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle")
@@ -32,7 +40,14 @@ export function NewsletterForm({ source = "homepage" }: { source?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+    <form
+      onSubmit={handleSubmit}
+      className={
+        compact
+          ? "flex flex-col gap-2"
+          : "flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+      }
+    >
       <input
         type="text"
         name="website"
@@ -49,14 +64,22 @@ export function NewsletterForm({ source = "homepage" }: { source?: string }) {
         placeholder="Enter your email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 px-4 py-3.5 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+        className={
+          compact
+            ? "w-full px-3 py-2.5 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+            : "flex-1 px-4 py-3.5 rounded-xl border border-white/10 bg-white/5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+        }
       />
       <button
         type="submit"
         disabled={status === "loading"}
-        className="px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:hover:scale-100"
+        className={
+          compact
+            ? "w-full px-4 py-2.5 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 disabled:opacity-60"
+            : "px-8 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:hover:scale-100"
+        }
       >
-        {status === "loading" ? "Joining…" : "Subscribe"}
+        {status === "loading" ? "Joining…" : submitLabel}
       </button>
       {status === "error" && (
         <p className="text-red-400 text-xs mt-2 w-full text-center">

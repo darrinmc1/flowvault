@@ -1,4 +1,6 @@
 import { siteConfig } from "@/config/site.config"
+import { REFUND_POLICY } from "@/lib/refund-policy"
+import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `Terms of Service | ${siteConfig.name}`,
@@ -6,6 +8,8 @@ export const metadata = {
 }
 
 export default function TermsPage() {
+  const supportEmail = getSupportEmail()
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className="mx-auto max-w-3xl px-6 py-20">
@@ -23,13 +27,19 @@ export default function TermsPage() {
           </p>
           <h2>Payments and Refunds</h2>
           <p>
-            All purchases are processed through Stripe. Refund requests within 14
-            days of purchase will be honored.
+            Pack prices are in US dollars. All purchases are processed through Stripe. {REFUND_POLICY}
           </p>
           <h2>Contact</h2>
           <p>
-            Questions? Email us at{" "}
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>.
+            Questions?
+            {supportEmail ? (
+              <>
+                {" "}
+                Email us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+              </>
+            ) : (
+              " Use the contact options published on this site."
+            )}
           </p>
         </article>
       </div>
