@@ -30,11 +30,11 @@ export const humorTheme: HumorTheme = {
   cardBorder: "border-slate-700",
   cardBg: "bg-slate-800/80",
   eyebrowColor: "text-violet-400",
-  label: "Flow break",
+  label: "Intel bar",
   punchColor: "text-slate-300",
   buttonBg: "bg-violet-600",
-  footerNote: "Even processes need a process",
-  shuffleLabel: "Another one",
+  footerNote: "Peel it or run it — a half-wired node is not a strategy",
+  shuffleLabel: "Another brief",
 }
 
 export const humorBank: Record<string, HumorItem[]> = {
@@ -89,6 +89,48 @@ export const humorBank: Record<string, HumorItem[]> = {
     {
       setup: "I trust my automated reports.",
       punchline: "Until I see a number I like, at which point I distrust them enough to check.",
+    },
+  ],
+  content: [
+    {
+      setup: "The AI drafted 800 words before coffee.",
+      punchline: "I spent the coffee rewriting the part where it invented a customer named Synergy.",
+    },
+    {
+      setup: "A first draft is a gift.",
+      punchline: "A first draft you publish is a confession.",
+    },
+    {
+      setup: "I asked the model for a newsletter blurb.",
+      punchline: "It gave me three. All of them began with 'In today's fast-paced world.' I declined the world.",
+    },
+  ],
+  capture: [
+    {
+      setup: "I send ideas to a Telegram bot so I won't lose them.",
+      punchline: "I now have a pristine archive of ideas I still haven't done.",
+    },
+    {
+      setup: "The capture inbox is empty.",
+      punchline: "Not because I'm organized. Because I forgot the bot token again.",
+    },
+    {
+      setup: "Forwarded a voice note to the bot.",
+      punchline: "It tagged it 'inbox.' Fair. That's where my life lives too.",
+    },
+  ],
+  review: [
+    {
+      setup: "The QA agent found seven broken links.",
+      punchline: "Six were mine. One was a link to the QA agent's own docs. Humility achieved.",
+    },
+    {
+      setup: "Spellcheck passed.",
+      punchline: "The article still said the product 'ships last Tuesday.' Grammar is not judgment.",
+    },
+    {
+      setup: "I set the word-count floor to 1,200.",
+      punchline: "The model padded with 'in conclusion' four times. I lowered the floor. And my pride.",
     },
   ],
 }
