@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 
-const SITE_KEY = process.env.SITE_KEY ?? "unknown";
+const SITE_KEY = process.env.SITE_KEY ?? "flowvault";
 const VALID_CATEGORIES = ["Bug", "Suggestion", "Content Request", "Other"];
 const FEEDBACK_TYPE: Record<string, string> = {
   Bug: "bug",
