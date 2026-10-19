@@ -66,6 +66,12 @@ export interface CopyConfig {
   feedbackPlaceholder: string
 }
 
+export interface PricingConfig {
+  founder: { monthly: number; yearly: number }
+  standard: { monthly: number; yearly: number }
+  premium: { monthly: number; yearly: number }
+}
+
 export interface ContactConfig {
   email: string
   github: string
@@ -81,6 +87,7 @@ export interface SiteConfig {
   categories: Category[]
   nav: NavConfig
   copy: CopyConfig
+  pricing: PricingConfig
   contact: ContactConfig
 }
 
@@ -202,11 +209,17 @@ export const siteConfig: SiteConfig = {
     ctaSecondary: "See How It Works",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
-    foundingMemberHeading: "Join the list",
+    foundingMemberHeading: "Founding Member — Lock In Early Access Pricing",
     emailCaptureHeading: "New Workflows Every Week",
     emailCaptureSubheading:
       "Get n8n automation tips and new template drops in your inbox.",
     feedbackPlaceholder: "Which workflow should we build next?",
+  },
+
+  pricing: {
+    founder: { monthly: 9, yearly: 84 },
+    standard: { monthly: 15, yearly: 144 },
+    premium: { monthly: 29, yearly: 276 },
   },
 
   contact: {
