@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server"
 import { supabaseAdmin } from "@/lib/supabase"
 import { addToMailchimp } from "@/lib/mailchimp"
 import { sendWelcome, sendAdminNotification } from "@/lib/email"
+import { saveToHq } from "@/lib/hq-subscribe"
 
-const SITE_KEY = process.env.SITE_KEY ?? "unknown"
+const SITE_KEY = process.env.SITE_KEY || "flowvault"
 
 const rateLimit = new Map<string, { count: number; reset: number }>()
 const WINDOW_MS = 60_000
@@ -60,6 +61,9 @@ export async function POST(req: NextRequest) {
     else dbWrote = true
   }
 
+  // Always copy the signup to the shared HQ subscribers list.
+  const hqSaved = await saveToHq(SITE_KEY, email, source)
+
   const mc = await addToMailchimp({
     email,
     name,
@@ -70,9 +74,16 @@ export async function POST(req: NextRequest) {
     sendWelcome({ email, name }),
     sendAdminNotification({
       kind: "subscribe",
-      payload: { site: SITE_KEY, email, name, source, ip, dbWrote, mc: mc.ok },
+      payload: { site: SITE_KEY, email, name, source, ip, dbWrote, hqSaved, mc: mc.ok },
     }),
   ])
+
+  if (!dbWrote && !hqSaved && !mc.ok) {
+    return NextResponse.json(
+      { error: "We couldn't save your email just now. Please try again." },
+      { status: 502 },
+    )
+  }
 
   return NextResponse.json({ ok: true })
 }

@@ -66,14 +66,18 @@ export interface CopyConfig {
   feedbackPlaceholder: string
 }
 
+export interface PackPrice {
+  id: string
+  name: string
+  onceUsd: number
+}
+
 export interface PricingConfig {
-  founder: { monthly: number; yearly: number }
-  standard: { monthly: number; yearly: number }
-  premium: { monthly: number; yearly: number }
+  currency: "USD"
+  packs: readonly PackPrice[]
 }
 
 export interface ContactConfig {
-  email: string
   github: string
 }
 
@@ -209,21 +213,25 @@ export const siteConfig: SiteConfig = {
     ctaSecondary: "See How It Works",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
-    foundingMemberHeading: "Founding Member — Lock In Early Access Pricing",
+    foundingMemberHeading: "Early supporters will hear about launch pricing first",
     emailCaptureHeading: "New Workflows Every Week",
     emailCaptureSubheading:
       "Get n8n automation tips and new template drops in your inbox.",
     feedbackPlaceholder: "Which workflow should we build next?",
   },
 
+  // One-off packs only. Amounts match data/products.ts. There is no membership.
   pricing: {
-    founder: { monthly: 9, yearly: 84 },
-    standard: { monthly: 15, yearly: 144 },
-    premium: { monthly: 29, yearly: 276 },
+    currency: "USD",
+    packs: [
+      { id: "ai-content-drafter", name: "AI Content Drafter Pack", onceUsd: 69 },
+      { id: "telegram-capture-bot", name: "Telegram Capture Bot", onceUsd: 39 },
+      { id: "reviewer-qa-agent", name: "Reviewer / QA Agent", onceUsd: 49 },
+      { id: "flowvault-bundle", name: "FlowVault Complete Bundle", onceUsd: 129 },
+    ],
   },
 
   contact: {
-    email: "hello@flowvault.io",
     github: "https://github.com/darrinmc1",
   },
 } as const satisfies SiteConfig

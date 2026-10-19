@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.t} | ${siteConfig.name}`,
     description: post.e,
+    alternates: { canonical: `/blog/${post.s}` },
   }
 }
 
@@ -263,7 +264,7 @@ function renderBody(slug: string) {
         <h2 className="text-xl font-bold mt-10 mb-4 text-white">Where Zapier starts to hurt</h2>
         <p className="text-base text-slate-300 leading-relaxed mb-6">
           The pain arrives in two forms: price and complexity. Task-based pricing means your
-          cheapest zap, running hourly, quietly bills you every month forever. And when an
+          cheapest zap, running hourly, quietly bills you every month with no end date. And when an
           automation needs a loop, a conditional branch, or any logic beyond &quot;if this then that&quot;,
           you start stacking zaps and paying per hop.
         </p>

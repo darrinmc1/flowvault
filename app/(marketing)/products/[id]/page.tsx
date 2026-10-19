@@ -1,12 +1,10 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ALL_PRODUCTS, getProductById } from "@/data/products"
-import { ALL_MODULES } from "@/data/modules"
-import { PAID_DOWNLOADS_READY } from "@/data/inventory"
 import { siteConfig } from "@/config/site.config"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
+import { BuyButton } from "@/components/buy-button"
 import { Check } from "lucide-react"
-import HumorBreak from "@/components/humor-break"
 
 export function generateStaticParams() {
   return ALL_PRODUCTS.map((p) => ({ id: p.id }))
@@ -18,16 +16,13 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${product.name} | ${siteConfig.name}`,
     description: product.description,
+    alternates: { canonical: `/products/${product.id}` },
   }
 }
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProductById(params.id)
   if (!product) notFound()
-
-  const relatedLessons = ALL_MODULES.filter(
-    (m) => m.status === "published" && product.tags.some((tag) => m.tags.includes(tag) || m.category === product.tags[0])
-  ).slice(0, 4)
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
@@ -75,45 +70,15 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <MarkdownRenderer content={product.content} />
         </article>
 
-        <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div className="mt-8 flex flex-col items-start gap-6 sm:flex-row">
           <div>
             <span className="text-4xl font-extrabold text-white">${product.price}</span>
-            <span className="text-slate-400 ml-1">one-time</span>
+            <span className="text-slate-400 ml-1">USD, one-time</span>
           </div>
-          <button
-            type="button"
-            disabled
-            className="px-8 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 opacity-70 cursor-not-allowed"
-            title="Checkout coming soon"
-          >
-            {PAID_DOWNLOADS_READY ? "Buy Now" : "Coming Soon"}
-          </button>
+          <div className="w-full max-w-md">
+            <BuyButton sku={product.lookupKey} price={product.price} available={product.available} />
+          </div>
         </div>
-        <p className="mt-3 text-sm text-slate-500">
-          No checkout on this page. The zip at <code className="text-slate-400">{product.downloadPath}</code> is
-          not public yet — we will not send you to a 404 or a live Stripe session.
-        </p>
-
-        <HumorBreak tag="automation" />
-
-        {relatedLessons.length > 0 && (
-          <div className="mt-10">
-            <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
-              Written lessons that match this pack
-            </h2>
-            <div className="space-y-3">
-              {relatedLessons.map((lesson) => (
-                <Link
-                  key={lesson.id}
-                  href={`/lessons/${lesson.id}`}
-                  className="block rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 hover:text-cyan-400"
-                >
-                  {lesson.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
 
         <div className="mt-6 flex flex-wrap gap-2">
           {product.tags.map((tag) => (

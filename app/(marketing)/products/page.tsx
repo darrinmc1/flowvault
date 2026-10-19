@@ -1,136 +1,99 @@
 import Link from "next/link"
+import { Check } from "lucide-react"
 import { ALL_PRODUCTS } from "@/data/products"
-import {
-  FREE_SAMPLES,
-  LESSON_COUNT,
-  PAID_DOWNLOADS_READY,
-  PRODUCT_COUNT,
-  SAMPLE_JSON_COUNT,
-  WORKFLOW_PACK_COUNT,
-} from "@/data/inventory"
+import { flowVaultFaqs } from "@/lib/aeo"
 import { siteConfig } from "@/config/site.config"
-import HumorBreak from "@/components/humor-break"
+import { BuyButton } from "@/components/buy-button"
 
 export const metadata = {
   title: `Products | ${siteConfig.name}`,
-  description: `${WORKFLOW_PACK_COUNT} workflow packs and one bundle. Downloads Coming Soon. ${SAMPLE_JSON_COUNT} free sample JSON files.`,
+  description: "One-time n8n workflow packs: AI Content Drafter, Telegram Capture Bot, Reviewer/QA Agent, and the complete bundle.",
+  alternates: { canonical: "/products" },
 }
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-14">
-          <h1 className="text-4xl font-bold text-white mb-4">n8n Workflow Packs</h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Honest shelf: {WORKFLOW_PACK_COUNT} workflow packs + 1 bundle ({PRODUCT_COUNT}{" "}
-            products). Checkout is Coming Soon — no Stripe from this page, no new prices.
-            Pack zip files are not on disk yet.
+    <div className="min-h-screen bg-slate-950 px-4 py-20 text-slate-50">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-14 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-400">
+            One-time packs
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 bg-amber-900/30 border border-amber-700/50 rounded-full px-4 py-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-            <span className="text-amber-300 text-sm font-medium">
-              {SAMPLE_JSON_COUNT} free sample JSON files · {LESSON_COUNT} written lessons ·
-              paid zips {PAID_DOWNLOADS_READY ? "ready" : "Coming Soon"}
-            </span>
-          </div>
+          <h1 className="mb-4 text-4xl font-bold text-white">n8n workflow packs</h1>
+          <p className="mx-auto max-w-2xl text-lg text-slate-400">
+            Four USD packs. Download the workflow JSON, import it into your own n8n instance, and follow the setup guide.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {ALL_PRODUCTS.map((product) => (
-            <div
+            <article
               key={product.id}
-              className="relative bg-gray-900 border border-gray-800 rounded-2xl p-8 flex flex-col hover:border-purple-700/60 transition-colors"
+              className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-8"
             >
               <div className="mb-6">
-                <Link href={`/products/${product.id}`} className="group">
-                  <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400">
-                    {product.emoji} {product.name}
-                  </h2>
-                </Link>
-                <p className="text-gray-400 text-sm leading-relaxed">{product.description}</p>
+                <p className="mb-3 text-3xl" aria-hidden="true">
+                  {product.emoji}
+                </p>
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  <Link href={`/products/${product.id}`} className="hover:text-cyan-300">
+                    {product.name}
+                  </Link>
+                </h2>
+                <p className="text-sm leading-relaxed text-slate-400">{product.description}</p>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-6">
+              <div className="mb-6 flex items-baseline gap-2">
                 <span className="text-4xl font-bold text-white">${product.price}</span>
-                <span className="text-gray-500 text-sm">one-time</span>
-                <span className="ml-auto text-purple-400 text-sm font-medium">
-                  {product.category}
-                </span>
+                <span className="text-sm text-slate-500">USD, one-time</span>
               </div>
 
-              <ul className="space-y-2 mb-8 flex-1">
+              <ul className="mb-8 flex-1 space-y-2">
                 {product.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-gray-300 text-sm">
-                    <svg className="w-4 h-4 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                  <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <div className="space-y-3">
-                <Link
-                  href={`/products/${product.id}`}
-                  className="flex items-center justify-center gap-2 w-full border border-purple-700 text-purple-400 hover:bg-purple-900/30 rounded-xl py-3 text-sm font-medium transition-colors"
-                >
-                  Read the pack notes
-                </Link>
-                <button
-                  className="w-full bg-purple-600 text-white rounded-xl py-3 text-sm font-semibold cursor-not-allowed opacity-75"
-                  disabled
-                  title="Checkout coming soon"
-                >
-                  Buy Now — ${product.price}
-                  <span className="ml-2 text-xs opacity-70">(Coming Soon)</span>
-                </button>
-              </div>
-            </div>
+              <BuyButton sku={product.lookupKey} price={product.price} available={product.available} />
+
+              <Link
+                href={`/products/${product.id}`}
+                className="mt-4 text-center text-sm text-slate-400 hover:text-cyan-300"
+              >
+                View the setup details
+              </Link>
+            </article>
           ))}
         </div>
 
-        <div className="mt-16 bg-gray-900 border border-gray-800 rounded-2xl p-8">
-          <h2 className="text-2xl font-bold text-white mb-3">Free sample JSON (import these now)</h2>
-          <p className="text-gray-400 mb-6">
-            These are single sample workflows — not 10-, 25-, or 60-file packs. The old
-            starter / business / e-commerce / ultimate pack counts were placeholders.
-          </p>
-          <ul className="space-y-3">
-            {FREE_SAMPLES.map((sample) => (
-              <li
-                key={sample.id}
-                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-xl border border-white/10 px-4 py-3"
-              >
-                <a
-                  href={sample.href}
-                  download
-                  className="text-cyan-400 hover:text-cyan-300 text-sm font-medium"
-                >
-                  {sample.name}
-                </a>
-                <span className="text-gray-500 text-sm">{sample.note}</span>
-              </li>
+        <section className="mx-auto mt-16 max-w-3xl">
+          <h2 className="mb-6 text-2xl font-bold text-white">FAQ</h2>
+          <div className="space-y-3">
+            {flowVaultFaqs.map((faq) => (
+              <details key={faq.question} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <summary className="cursor-pointer text-sm font-semibold text-white">{faq.question}</summary>
+                <p className="mt-3 text-sm leading-relaxed text-slate-400">{faq.answer}</p>
+              </details>
             ))}
-          </ul>
-        </div>
+          </div>
+        </section>
 
-        <HumorBreak tag="automation" />
-
-        <div className="mt-8 bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Want the walkthrough, not a 404?</h2>
-          <p className="text-gray-400 mb-6">
-            {LESSON_COUNT} written lessons. The Fundamentals lesson includes the one sample
-            JSON that matches a lesson step-by-step.
+        <div className="mt-16 rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+          <h2 className="mb-3 text-2xl font-bold text-white">Want to inspect a workflow first?</h2>
+          <p className="mb-6 text-slate-400">
+            The lessons explain how the workflows are put together so you can see the pattern before you buy a pack.
           </p>
           <Link
-            href="/lessons/n8n-fundamentals"
-            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white rounded-xl px-6 py-3 font-semibold transition-colors"
+            href="/learn"
+            className="inline-flex items-center justify-center rounded-xl bg-cyan-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-cyan-500"
           >
-            Start the free Fundamentals lesson
+            Browse the lessons
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

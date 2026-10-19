@@ -6,6 +6,7 @@
 // =============================================================================
 
 import { siteConfig } from "@/config/site.config"
+import { REFUND_POLICY } from "@/lib/refund-policy"
 import { ALL_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
@@ -35,8 +36,11 @@ export const flowVaultFaqs = [
   },
   {
     question: "How much do FlowVault workflows cost?",
-    answer:
-      "Listed one-time prices: AI Content Drafter Pack $69, Telegram Capture Bot $39, Reviewer / QA Agent $49, and the Complete Bundle $129. Checkout and zip downloads are Coming Soon — there is no live Stripe purchase and no 60-workflow warehouse. Written lessons are free.",
+    answer: `Workflows are sold as one-time USD packs: ${ALL_PRODUCTS.map((product) => `${product.name} $${product.price}`).join(", ")}. There is no membership.`,
+  },
+  {
+    question: "What is the refund policy?",
+    answer: REFUND_POLICY,
   },
   {
     question: "What does the FlowVault Complete Bundle include?",
@@ -82,10 +86,7 @@ ${updateBlock}
 
 ## Pricing
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+${ALL_PRODUCTS.map((product) => `- ${product.name}: USD ${product.price} one-time — ${base}/products/${product.id}`).join("\n")}
 
 ## FAQs
 

@@ -1,10 +1,14 @@
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `Privacy Policy | ${siteConfig.name}`,
+  alternates: { canonical: "/privacy" },
 }
 
 export default function PrivacyPage() {
+  const supportEmail = getSupportEmail()
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className="mx-auto max-w-3xl px-6 py-20">
@@ -28,8 +32,15 @@ export default function PrivacyPage() {
           </p>
           <h2>Contact</h2>
           <p>
-            Questions? Email us at{" "}
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>.
+            Questions?
+            {supportEmail ? (
+              <>
+                {" "}
+                Email us at <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+              </>
+            ) : (
+              " Use the contact options published on this site."
+            )}
           </p>
         </article>
       </div>

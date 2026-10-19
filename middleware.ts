@@ -1,6 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
+import type { NextFetchEvent, NextRequest } from "next/server"
 
 // === Clerk auth: protect dashboard routes, redirect to sign-in ===
 // Graceful fallback: if CLERK_SECRET_KEY isn't set, skip auth and let everything through
@@ -27,7 +27,19 @@ const RATE_LIMIT_MAX = 60 // 60 requests per minute per IP
 // Graceful fallback: if Clerk isn't configured, pass through
 const clerkEnabled = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
-export default clerkMiddleware(
+/**
+ * Stripe delivers webhooks with no Clerk session. This path must reach the
+ * route, which checks STRIPE_WEBHOOK_SECRET and returns 503 while
+ * STRIPE_ENABLED is not "true".
+ *
+ * /api/checkout stays on the Clerk middleware. A purchase is granted to the
+ * signed-in Clerk userId, so guests are not accepted there.
+ */
+function isStripeWebhook(request: NextRequest) {
+  return request.nextUrl.pathname === "/api/stripe/webhook"
+}
+
+const withClerk = clerkMiddleware(
   async (auth, request: NextRequest) => {
     const url = request.nextUrl.pathname
     const userAgent = request.headers.get("user-agent") || ""
@@ -96,6 +108,13 @@ export default clerkMiddleware(
     return response
   },
 )
+
+export default function middleware(request: NextRequest, event: NextFetchEvent) {
+  if (isStripeWebhook(request)) {
+    return NextResponse.next()
+  }
+  return withClerk(request, event)
+}
 
 export const config = {
   matcher: [

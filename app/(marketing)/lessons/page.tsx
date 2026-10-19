@@ -6,7 +6,8 @@ import HumorBreak from "@/components/humor-break"
 
 export const metadata = {
   title: `Lessons | ${siteConfig.name}`,
-  description: `${LESSON_COUNT} written n8n lessons. No video. Pack zips Coming Soon.`,
+  description: `${LESSON_COUNT} written n8n lessons.`,
+  alternates: { canonical: "/lessons" },
 }
 
 const published = ALL_MODULES.filter((m) => m.status === "published")

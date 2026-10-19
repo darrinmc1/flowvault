@@ -7,12 +7,7 @@ import { siteConfig } from "@/config/site.config"
 // - Private user areas (dashboard/account/api): blocked for everyone
 // - llms.txt serves the curated informational summary separately
 export default function robots(): MetadataRoute.Robots {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_DOMAIN
-      ? `https://${process.env.NEXT_PUBLIC_SITE_DOMAIN}`
-      : process.env.NEXT_PUBLIC_VERCEL_URL
-        ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-        : `https://${siteConfig.domain}`
+  const base = `https://${siteConfig.domain}`
 
   return {
     rules: [
