@@ -4,6 +4,7 @@ import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `Terms of Service | ${siteConfig.name}`,
+  alternates: { canonical: "/terms" },
 }
 
 export default function TermsPage() {

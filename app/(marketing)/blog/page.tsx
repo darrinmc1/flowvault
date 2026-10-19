@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site.config"
 export const metadata = {
   title: `Blog | ${siteConfig.name}`,
   description: "Practical n8n automation guides for solopreneurs, marketers, and the automation-curious.",
+  alternates: { canonical: "/blog" },
 }
 
 export default function BlogPage() {

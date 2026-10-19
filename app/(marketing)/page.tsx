@@ -1,4 +1,10 @@
+import type { Metadata } from "next"
 import Link from "next/link"
+import { NewsletterForm } from "@/components/newsletter-form"
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
 
 const workflowSteps = [
   ["1", "Pick a workflow", "Browse the current library and choose a workflow that matches the job you want to automate."],
@@ -26,7 +32,7 @@ export default function MarketingHomePage() {
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link href="/products" className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-8 py-3 font-semibold text-white transition-all hover:bg-indigo-500">Browse Workflows</Link>
-          <Link href="/newsletter" className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-8 py-3 font-semibold text-slate-300 transition-all hover:border-indigo-500">Get New Workflow Updates</Link>
+          <Link href="#newsletter" className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-8 py-3 font-semibold text-slate-300 transition-all hover:border-indigo-500">Get New Workflow Updates</Link>
         </div>
       </section>
 
@@ -60,6 +66,13 @@ export default function MarketingHomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section id="newsletter" className="mx-auto w-full max-w-3xl scroll-mt-24 px-6 py-20 text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-400">Workflow updates</p>
+        <h2 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">Get new workflow updates</h2>
+        <p className="mb-8 text-lg text-slate-400">Leave your email and we&apos;ll send a note when a new template is added to the library.</p>
+        <NewsletterForm source="homepage" />
       </section>
 
       <section className="mx-auto w-full max-w-3xl px-6 py-20 text-center">

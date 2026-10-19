@@ -4,6 +4,7 @@ import { getSupportEmail } from "@/lib/support-email"
 export const metadata = {
   title: `About | ${siteConfig.name}`,
   description: `Learn more about ${siteConfig.name}.`,
+  alternates: { canonical: "/about" },
 }
 
 export default function AboutPage() {

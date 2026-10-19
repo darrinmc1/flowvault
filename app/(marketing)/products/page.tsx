@@ -8,6 +8,7 @@ import { BuyButton } from "@/components/buy-button"
 export const metadata = {
   title: `Products | ${siteConfig.name}`,
   description: "One-time n8n workflow packs: AI Content Drafter, Telegram Capture Bot, Reviewer/QA Agent, and the complete bundle.",
+  alternates: { canonical: "/products" },
 }
 
 export default function ProductsPage() {

@@ -14,6 +14,7 @@ export function generateMetadata({ params }: { params: { id: string } }) {
   return {
     title: `${mod.title} | ${siteConfig.name}`,
     description: mod.description,
+    alternates: { canonical: `/lessons/${mod.id}` },
   }
 }
 

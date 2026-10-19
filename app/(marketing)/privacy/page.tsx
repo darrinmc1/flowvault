@@ -3,6 +3,7 @@ import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `Privacy Policy | ${siteConfig.name}`,
+  alternates: { canonical: "/privacy" },
 }
 
 export default function PrivacyPage() {
