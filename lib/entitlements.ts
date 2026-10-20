@@ -1,4 +1,6 @@
 import { supabaseAdmin } from "./supabase"
+import { getStripeSiteKey } from "./merchant-of-record"
+import { scopeToSite, siteProductIdPattern, toStoredProductId } from "./entitlement-keys"
 
 export interface Entitlement {
   id: string
@@ -12,15 +14,17 @@ export async function getUserEntitlements(
   userId: string
 ): Promise<Entitlement[]> {
   if (!supabaseAdmin) return []
+  const site = getStripeSiteKey()
   const { data, error } = await supabaseAdmin
     .from("entitlements")
     .select("*")
     .eq("user_id", userId)
+    .like("product_id", siteProductIdPattern(site))
   if (error) {
     console.error("[entitlements] fetch failed", error)
     return []
   }
-  return data ?? []
+  return scopeToSite(data ?? [], site)
 }
 
 export async function grantEntitlement(
@@ -31,7 +35,7 @@ export async function grantEntitlement(
   const { error } = await supabaseAdmin.from("entitlements").upsert(
     {
       user_id: userId,
-      product_id: productId,
+      product_id: toStoredProductId(productId, getStripeSiteKey()),
       granted_at: new Date().toISOString(),
     },
     { onConflict: "user_id,product_id" }
