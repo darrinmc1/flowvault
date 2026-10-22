@@ -11,7 +11,7 @@ import HumorBreak from "@/components/humor-break"
 
 export const metadata = {
   title: `Learn n8n | ${siteConfig.name}`,
-  description: `${LESSON_COUNT} free written n8n lessons. Same curriculum as /lessons. No fake preview locks.`,
+  description: `${LESSON_COUNT} free written n8n lessons, from your first workflow to AI agents.`,
 }
 
 const published = ALL_MODULES.filter((m) => m.status === "published")
@@ -23,17 +23,16 @@ export default function LearnPage() {
         <div className="text-center mb-14">
           <h1 className="text-4xl font-bold text-white mb-4">Learn n8n Automation</h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            {LESSON_COUNT} written lessons. All readable. No video. {SAMPLE_JSON_COUNT} free
-            sample JSON files on disk. Paid pack zips are{" "}
-            {PAID_DOWNLOADS_READY ? "available" : "Coming Soon"} — there is no 60-workflow
-            library hiding behind a lock icon.
+            {LESSON_COUNT} written lessons, all free to read. {SAMPLE_JSON_COUNT} free sample
+            workflow files to import. Workflow packs are{" "}
+            {PAID_DOWNLOADS_READY ? "available" : "coming soon"}.
           </p>
           <p className="text-gray-500 text-sm mt-3">
             Same curriculum as{" "}
             <Link href="/lessons" className="text-cyan-400 hover:underline">
               /lessons
             </Link>
-            . Old preview cards (webhooks, APIs, Code node, AI workflows) are real pages now.
+            .
           </p>
         </div>
 
@@ -102,16 +101,16 @@ export default function LearnPage() {
         <HumorBreak tag="automation" />
 
         <div className="mt-12 bg-purple-900/20 border border-purple-700/40 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Packs, not a fictional warehouse</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Workflow packs</h2>
           <p className="text-gray-400 mb-6">
-            Three workflow packs plus one bundle are listed on Products. Checkout and zip
-            downloads are Coming Soon. No new prices. No Stripe on this page.
+            Three workflow packs and a bundle are listed on the Products page. Pack
+            downloads are coming soon.
           </p>
           <Link
             href="/products"
             className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl px-6 py-3 font-semibold transition-colors"
           >
-            See the real catalog
+            See the packs
           </Link>
         </div>
       </div>

@@ -69,7 +69,7 @@ export function buildLlmTxt(): string {
 > ${siteConfig.description}
 
 Site: ${base}
-Job: Done-for-you n8n workflow packs (content drafting, Telegram capture, QA review). Written lessons are live. Pack zip downloads and checkout are Coming Soon.
+Job: Done-for-you n8n workflow packs (content drafting, Telegram capture, QA review). Written lessons are live. Pack downloads are coming soon.
 Not: an n8n hosting provider; not a managed automation service; not a 60+ workflow warehouse; workflows require your own n8n instance and API keys.
 
 ## Products

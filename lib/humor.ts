@@ -30,11 +30,11 @@ export const humorTheme: HumorTheme = {
   cardBorder: "border-slate-700",
   cardBg: "bg-slate-800/80",
   eyebrowColor: "text-violet-400",
-  label: "Intel bar",
+  label: "Flow break",
   punchColor: "text-slate-300",
   buttonBg: "bg-violet-600",
-  footerNote: "Peel it or run it — a half-wired node is not a strategy",
-  shuffleLabel: "Another brief",
+  footerNote: "Wire it or cut it — a half-wired node is not a strategy",
+  shuffleLabel: "Another one",
 }
 
 export const humorBank: Record<string, HumorItem[]> = {

@@ -40,7 +40,7 @@ const howTheDrafterWorks: Module = {
 
 This lesson is a walkthrough, not a sales page. You will leave knowing the four-stage graph, what each node is allowed to decide, and what you still have to do by hand. The packaged Drafter zip is **Coming Soon** — you can rebuild the graph from these notes today, or wait for the import file.
 
-> Intel bar: a workflow that writes three formats from one prompt is not magic. It is one LLM call and a polite argument about JSON keys.
+> Rule of thumb: a workflow that writes three formats from one prompt is not magic. It is one LLM call and a polite argument about JSON keys.
 
 ### The Big Picture
 
@@ -110,11 +110,11 @@ That is the Drafter. The pack is a pre-wired version of this, plus templates. It
 - **The blog is 90 words.** You did not set a floor. The model will take the cheapest path.
 - **Notion page titled \`undefined\`.** You mapped \`title\` from the wrong path. Click the node. Look at the actual output. Do not guess.
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. The Drafter walkthrough matches the product page for **AI Content Drafter Pack** ($69, Coming Soon). There is no \`drafter.json\` in the public downloads folder today. The free sample on disk is the Fundamentals HTTP workflow, not this graph.
+This lesson is free. The **AI Content Drafter Pack** that matches it is coming soon, so there is no import file for this graph yet. The free Fundamentals sample is a different workflow.
 
-### Peel this
+### Bottom line
 
 If you cannot explain which node is allowed to invent sentences, you do not have a content pipeline. You have a button that surprises you.`,
   duration: "18 min",
@@ -143,7 +143,7 @@ Capture is the least glamorous workflow in FlowVault and the one people actually
 
 The packaged Telegram zip is **Coming Soon**. The setup below is the real procedure. You can build it now.
 
-> Intel bar: if your capture system requires a laptop, it is not a capture system. It is a homework assignment you assigned yourself.
+> Rule of thumb: if your capture system requires a laptop, it is not a capture system. It is a homework assignment you assigned yourself.
 
 ### Creating Your Telegram Bot
 
@@ -221,11 +221,11 @@ Reply in the same chat: "Saved. Tags: inbox, ideas." If the save failed, say it 
 - **Duplicate rows.** Telegram retries. Upsert on \`update_id\` or accept that "hello" may appear twice and move on.
 - **Bot replies in the wrong chat.** You hardcoded a chat id from a test. Use the incoming \`chat.id\`.
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. The matching product is **Telegram Capture Bot** ($39, Coming Soon). There is no \`telegram-capture.json\` in public downloads. Do not click around looking for a secret zip. There isn't one yet.
+This lesson is free. The **Telegram Capture Bot** pack that matches it is coming soon, so there is no import file for this bot yet. The setup above is the full procedure.
 
-### Peel this
+### Bottom line
 
 If you will not send the bot a real thought today, do not build a tagging taxonomy for 40 categories. You do not have a library. You have a form you are avoiding.`,
   duration: "16 min",
@@ -254,7 +254,7 @@ The QA agent is a bouncer, not a ghostwriter. It does not make the draft good. I
 
 The packaged Reviewer zip is **Coming Soon**. The check list below is the spec. You can wire it by hand.
 
-> Intel bar: a pass/fail report you ignore is a diary. A report that blocks publish is a gate. Pick one.
+> Rule of thumb: a pass/fail report you ignore is a diary. A report that blocks publish is a gate. Pick one.
 
 ### What the Agent Checks
 
@@ -321,11 +321,11 @@ That is enough to distrust your drafts in a useful way.
 5. Choose report delivery
 6. Mark one draft "Ready for Review" and read the report like you mean it
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. The matching product is **Reviewer / QA Agent** ($49, Coming Soon). There is no \`reviewer-qa.json\` in public downloads. Custom-check patterns live in the advanced lesson on this site.
+This lesson is free. The **Reviewer / QA Agent** pack that matches it is coming soon. Custom-check patterns are in the advanced lesson on this site.
 
-### Peel this
+### Bottom line
 
 If every check is a warn, you have built a shrug. Fail the things that would embarrass you in public. Warn the rest.`,
   duration: "20 min",
@@ -352,7 +352,7 @@ const n8nFundamentals: Module = {
 
 If you have never opened n8n, start here. This is the only lesson with a **real downloadable sample JSON** on this site today. Import it, run it, then come back. The paid packs are Coming Soon. This sample is not.
 
-> Intel bar: n8n is a graph of stubborn little boxes. The boxes do exactly what you configured, including the part you configured by accident.
+> Rule of thumb: n8n is a graph of stubborn little boxes. The boxes do exactly what you configured, including the part you configured by accident.
 
 ### What Is n8n?
 
@@ -412,11 +412,11 @@ If the UI shows a red expression, you typed a field that is not there. Click the
 - Always test with a small input before you enable a production trigger.
 - "It worked once" is not a deployment plan. Check the executions list after you walk away.
 
-### Honest Inventory
+### Files for this lesson
 
-Written lessons on this site: see the Lessons index for the live count. Free sample JSON files on disk: **5**, including this one. Paid workflow zips: **0** (Coming Soon). No Stripe on this page. No 60-pack.
+Lessons on this site are free to read. There are five free sample workflow files, including this one. The paid workflow packs are coming soon.
 
-### Peel this
+### Bottom line
 
 If you cannot import this sample and explain the IF branch, do not buy a bundle later. Buy an afternoon. This one.`,
   duration: "14 min",
@@ -443,7 +443,7 @@ const promptEngineering: Module = {
 
 The AI nodes in FlowVault workflows are only as good as their prompts. This lesson is about writing prompts that a *workflow* can trust — not prompts that win a screenshot.
 
-> Intel bar: a clever prompt that returns different shapes on Tuesdays is not clever. It is a flaky unit test with an invoice.
+> Rule of thumb: a clever prompt that returns different shapes on Tuesdays is not clever. It is a flaky unit test with an invoice.
 
 ### System Prompt vs User Prompt
 
@@ -498,11 +498,11 @@ Until the pack ships, duplicate your system prompt and edit the Role line. That 
 - **Keys appear in Title Case.** Your schema said \`blog\` and the model said \`Blog\`. Normalize in Code. Do not add a second LLM call to "fix the keys."
 - **Social thread is one long paragraph.** You asked for "a thread" instead of "an array of 5 strings, each ≤ 240 characters."
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. It does not include a secret prompt pack download. The five Drafter templates are part of a Coming Soon product, not a hidden folder.
+This lesson is free. The five Drafter prompt templates come with the AI Content Drafter Pack, which is coming soon.
 
-### Peel this
+### Bottom line
 
 If you cannot parse the output with \`JSON.parse\`, you do not have an automation. You have a chat you scheduled.`,
   duration: "18 min",
@@ -529,7 +529,7 @@ const chainingWorkflows: Module = {
 
 Each FlowVault workflow is designed to run alone. The bundle's connector is the piece that makes them talk: capture an idea, draft from it, review the draft. That connector JSON is **Coming Soon**, same as the three packs. This lesson is the wiring diagram so you do not invent a fourth god-workflow that cannot be tested.
 
-> Intel bar: a 60-node canvas is not a pipeline. It is a place where hope goes to need a scrollbar.
+> Rule of thumb: a 60-node canvas is not a pipeline. It is a place where hope goes to need a scrollbar.
 
 ### Why Chain at All?
 
@@ -587,11 +587,11 @@ If a child changes a key name, the orchestrator breaks on purpose. That is good.
 - Add a Set node in the parent that logs the payload you are about to send. Future you will thank present you, briefly.
 - Do not enable the Telegram trigger on both the child and the parent. You will process the same idea twice and call it engagement.
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. The **Complete Bundle** ($129) and its connector are Coming Soon. There is no pipeline zip in public downloads. You can still build the orchestrator with Execute Workflow nodes today if you built the children.
+This lesson is free. The **Complete Bundle** and its connector are coming soon. You can still build the orchestrator with Execute Workflow nodes today if you have built the child workflows.
 
-### Peel this
+### Bottom line
 
 If a child cannot run with a Manual Trigger and pinned JSON, it is not ready to be a child. You do not get to hide a mess behind Execute Workflow.`,
   duration: "16 min",
@@ -618,7 +618,7 @@ const autoTaggingStrategies: Module = {
 
 The Capture Bot ships (when it ships) with keyword matching. That is correct for week one. This lesson covers when to stay there, when to add regex, and when an LLM is worth the latency and the bill.
 
-> Intel bar: a taxonomy with 30 tags and 4 notes is not a taxonomy. It is a museum.
+> Rule of thumb: a taxonomy with 30 tags and 4 notes is not a taxonomy. It is a museum.
 
 ### Strategy 1: Keyword Matching (Default)
 
@@ -675,13 +675,13 @@ The Switch node in the Capture workflow is the right place. Each branch is a str
 
 When the pack exists, open the node labeled Auto-Tagger. Until then: Code node, a plain object, \`includes()\`. You are not behind. You are unfashionable, which is cheaper.
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. It does not add a paid "tagging pack." The Capture Bot product remains Coming Soon. Your tag list is your own and should stay small enough to remember in a grocery line.
+This lesson is free and has no separate download. The Capture Bot pack is coming soon. Keep your tag list small enough to remember in a grocery line.
 
-### Peel this
+### Bottom line
 
-If you cannot name your tags without opening the workflow, you have too many tags. Peel it. Keep five. Eat the rest.`,
+If you cannot name your tags without opening the workflow, you have too many tags. Cut the list. Keep five. Drop the rest.`,
   duration: "14 min",
   durationMinutes: 14,
   learningOutcomes: [
@@ -708,7 +708,7 @@ The QA Agent's five stock checks are a start. The fan-out architecture is the pr
 
 The pack is **Coming Soon**. The contract is not.
 
-> Intel bar: a check you cannot explain to a tired editor will be disabled by that editor. Forever.
+> Rule of thumb: a check you cannot explain to a tired editor will be disabled by that editor. Forever.
 
 ### The Check Interface
 
@@ -755,11 +755,11 @@ Checks run in parallel. Total time ≈ the slowest check. LLM checks are the slo
 - "Would a VC like this?" — especially not a check
 - Auto-rewrite on fail — that is a different workflow with a human still in front of publish
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. It does not ship extra check nodes as a download. The Reviewer pack, when it exists, will include the five stock checks. Your custom branches live in your n8n instance.
+This lesson is free and has no separate download. The Reviewer pack, when it is available, will include the five stock checks. Your custom branches live in your own n8n instance.
 
-### Peel this
+### Bottom line
 
 If a check cannot produce pass/warn/fail without a paragraph of philosophy, it is a meeting. Do not automate meetings.`,
   duration: "20 min",
@@ -786,7 +786,7 @@ const errorHandling: Module = {
 
 Production workflows fail. APIs nap, rate limits land, models return poetry when you asked for JSON. This lesson is how to fail in a way you can hear.
 
-> Intel bar: retrying a 400 is optimism. Retrying a 429 is manners. Retrying a 500 is survival. Retrying "I forgot the credential" is a loop.
+> Rule of thumb: retrying a 400 is optimism. Retrying a 429 is manners. Retrying a 500 is survival. Retrying "I forgot the credential" is a loop.
 
 ### n8n's Built-In Retry
 
@@ -835,11 +835,11 @@ If Telegram retries a webhook and you insert a row each time, you have duplicate
 
 When the packs ship, critical nodes (LLM, writes) should already have retries. Until then, anything you build from these lessons should get retries before you enable a cron. A daily workflow that fails silently is an expensive calendar event.
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. The /learn card used to call this a locked "preview." It is not locked. There is no paid error-handling DLC. There is also no downloadable "error pack."
+This lesson is free and has no separate download.
 
-### Peel this
+### Bottom line
 
 If nobody is watching the error workflow, you do not have error handling. You have a log in a room you do not enter.`,
   duration: "16 min",
@@ -866,7 +866,7 @@ const schedulingAndTriggers: Module = {
 
 Every workflow starts with a trigger. The wrong trigger makes a good graph feel haunted. The right one is boring. Boring is the goal.
 
-> Intel bar: if you need four triggers because you could not pick one, you need a decision, not more nodes.
+> Rule of thumb: if you need four triggers because you could not pick one, you need a decision, not more nodes.
 
 ### Cron / Schedule
 
@@ -914,11 +914,11 @@ Best for development. Always. Pin data. Click Test. If your only trigger is cron
 
 Check: workflow active, instance time, cron expression, and whether you are looking at the correct environment. Looking at a local instance for a cloud cron is a rite of passage. It is also preventable.
 
-### Honest Inventory
+### Files for this lesson
 
-This lesson is written and free. It does not sell a "trigger pack." Webhook deep-dive is a separate written lesson. No download required.
+This lesson is free and has no separate download. The webhook deep-dive is a separate written lesson.
 
-### Peel this
+### Bottom line
 
 Pick the trigger you will still understand in six months. If that is Manual plus a calendar reminder, start there. You can always add cron after the graph is true.`,
   duration: "12 min",
@@ -947,7 +947,7 @@ This used to be a locked "preview" card on /learn. There is no paywall. There is
 
 A webhook is someone else's workflow calling yours. You publish a URL. They POST. You have a few hundred milliseconds to be polite and a few seconds to be correct.
 
-> Intel bar: if your webhook URL is in a public screenshot, it is not a secret. It is a guestbook.
+> Rule of thumb: if your webhook URL is in a public screenshot, it is not a secret. It is a guestbook.
 
 ### What You Actually Receive
 
@@ -1000,13 +1000,13 @@ You do not need a WAF essay. You need to not leave a firehose on the lawn.
 - Double processing because you returned 500 after you already inserted a row
 - Logging the entire payload including tokens. Stop that.
 
-### Honest Inventory
+### Files for this lesson
 
-Written lesson: yes. Interactive webhook debugger tool: **Coming Soon** (there is no /tools route). Pack download: none. This is not "available with pack purchase." It is available.
+This lesson is free. An interactive webhook debugger is coming soon. There is nothing to buy or download for this lesson.
 
-### Peel this
+### Bottom line
 
-If you cannot explain who is allowed to call the URL, do not put the URL in a no-code tool with 800 templates. Peel the audience first.`,
+If you cannot explain who is allowed to call the URL, do not put the URL in a no-code tool with 800 templates. Narrow the audience first.`,
   duration: "20 min",
   durationMinutes: 20,
   learningOutcomes: [
@@ -1033,7 +1033,7 @@ Another former "preview" card. No pack required. The HTTP Request node is the wh
 
 FlowVault's branded nodes (Notion, Telegram, OpenAI) are conveniences. When a vendor is not on the list, you are not blocked. You are in HTTP country.
 
-> Intel bar: "We have an API" means "we have a URL and opinions." The opinions are in the pagination.
+> Rule of thumb: "We have an API" means "we have a URL and opinions." The opinions are in the pagination.
 
 ### HTTP Request Node, Without Folklore
 
@@ -1078,13 +1078,13 @@ Map these in the error lesson's handler. The HTTP node should not swallow them i
 
 Use the Fundamentals sample (public todos API), then point the same shape at a real vendor in a dev environment. One resource. One method. Then pagination. Then writes.
 
-### Honest Inventory
+### Files for this lesson
 
-Written lesson: yes. There is no "API pack" of 25 CRM workflows on disk. The old products page claimed that. It was a placeholder count. Paid zips: Coming Soon. Sample JSON files: 5, and they are samples.
+This lesson is free. Workflow packs are coming soon. The five free sample workflow files are starting points, not full CRM integrations.
 
-### Peel this
+### Bottom line
 
-If you cannot GET one record with curl (or the HTTP node) and explain the JSON, you are not ready to paginate. Peel it until one record is boring.`,
+If you cannot GET one record with curl (or the HTTP node) and explain the JSON, you are not ready to paginate. Strip it back until one record is boring.`,
   duration: "22 min",
   durationMinutes: 22,
   learningOutcomes: [
@@ -1109,7 +1109,7 @@ const dataTransformation: Module = {
 
 The Code node is how you stop asking an LLM to rename keys. This card was a locked preview. It is a written lesson. There is no downloadable "transformation pack."
 
-> Intel bar: if your Code node is 200 lines, you do not have a transform. You have an application that is late for a repo.
+> Rule of thumb: if your Code node is 200 lines, you do not have a transform. You have an application that is late for a repo.
 
 ### The Only Objects You Need at First
 
@@ -1156,11 +1156,11 @@ Prefer an IF node when the branch is a workflow decision (send vs skip). Prefer 
 
 Pin a messy payload: missing keys, extra keys, an empty array. Run. If you only test the happy item, you have a demo.
 
-### Honest Inventory
+### Files for this lesson
 
-Written lesson: yes. Interactive playground tool: **Coming Soon** — there is no /tools/code-playground. Sample JSON: use the Fundamentals file and reshape its todo object. That is enough.
+This lesson is free. An interactive code playground is coming soon. For practice, use the free Fundamentals sample and reshape its todo object.
 
-### Peel this
+### Bottom line
 
 If a Set node can do it, use a Set node. Code is a privilege you earn by making Set look silly.`,
   duration: "18 min",
@@ -1189,7 +1189,7 @@ Last of the old locked /learn cards. No agent runtime ships with FlowVault. No h
 
 This lesson sits next to Prompt Engineering. That one is about the text. This one is about the wiring: one call, structured output, optional second call, a human still owns publish.
 
-> Intel bar: an "AI agent" with no stop condition is a junior employee with your credit card and no slack channel.
+> Rule of thumb: an "AI agent" with no stop condition is a junior employee with your credit card and no slack channel.
 
 ### One Call Is a Workflow
 
@@ -1241,11 +1241,11 @@ If you cannot read the tool log, you cannot debug the agent. You can only restar
 
 Log model, tokens if provided, and a hash of the prompt. Do not log secrets. Set a monthly budget you actually look at. A workflow that is "free" except the tokens is not free.
 
-### Honest Inventory
+### Files for this lesson
 
-Written lesson: yes. Hosted agents: no. Pack of "AI & LLM workflows" as a 60-file bundle: **not on disk**. The Drafter / QA products are the AI-related packs, and their zips are Coming Soon. This page does not charge extra.
+This lesson is free. Hosted agents are not offered. The AI-related packs are the Drafter and Reviewer / QA packs, both coming soon.
 
-### Peel this
+### Bottom line
 
 If the model can spend money or publish, a human is still in the loop. That is not a lack of ambition. That is how you still have a brand in the morning.`,
   duration: "20 min",

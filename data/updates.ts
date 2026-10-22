@@ -29,7 +29,7 @@ We built FlowVault because we spent too many weekends debugging n8n nodes instea
 
 ### Written Lessons
 
-Walkthrough lessons explain the graphs node by node — n8n basics, the three packs, webhooks, APIs, Code node, prompts, chaining, tagging, custom QA, and error handling. Count them on the Lessons index; we do not invent a bigger catalog. Pack JSON downloads remain Coming Soon.
+Walkthrough lessons explain the graphs node by node — n8n basics, the three packs, webhooks, APIs, Code node, prompts, chaining, tagging, custom QA, and error handling. The Lessons index lists them all. Pack downloads are still coming soon.
 
 ### Coming Soon
 

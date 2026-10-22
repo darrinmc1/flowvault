@@ -5,7 +5,7 @@ import HumorBreak from "@/components/humor-break"
 
 export const metadata = {
   title: `Tools | ${siteConfig.name}`,
-  description: "Interactive FlowVault tools are Coming Soon. Written lessons and sample JSON are live.",
+  description: "Interactive FlowVault tools are coming soon. The written lessons and sample workflow files are ready now.",
 }
 
 export default function ToolsComingSoonPage() {
@@ -17,9 +17,8 @@ export default function ToolsComingSoonPage() {
         </p>
         <h1 className="text-4xl font-extrabold text-white mb-4">No tools on this aisle yet</h1>
         <p className="text-slate-400 text-lg mb-8">
-          There is no webhook debugger, prompt sandbox, or agent console here. We will not
-          pretend otherwise. {LESSON_COUNT} written lessons and {SAMPLE_JSON_COUNT} sample
-          JSON files are the usable shelf today.
+          Interactive tools aren&apos;t built yet. Until they are, the {LESSON_COUNT} written
+          lessons and {SAMPLE_JSON_COUNT} sample workflow files are ready to use.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
