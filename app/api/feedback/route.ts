@@ -4,6 +4,7 @@
 // then files a GitHub issue, routing by the full page URL's domain.
 
 import { NextRequest, NextResponse } from "next/server";
+import { notifyFeedbackWebhook } from "@/lib/feedback-webhook";
 import { supabaseAdmin } from "@/lib/supabase";
 
 const SITE_KEY = process.env.SITE_KEY ?? "flowvault";
@@ -99,6 +100,9 @@ export async function POST(req: NextRequest) {
     console.error("[feedback] supabase insert error", error);
     return NextResponse.json({ error: "Failed to submit feedback." }, { status: 502 });
   }
+
+  // Kick n8n only after the row is saved. A webhook failure must not change this response.
+  await notifyFeedbackWebhook();
 
   return NextResponse.json({ message: "Thank you for your feedback. We read every note!" });
 }
