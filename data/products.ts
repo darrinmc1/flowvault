@@ -8,29 +8,20 @@ export interface Product {
   description: string
   content: string
   price: number
-  /**
-   * Stripe Price lookup key. Checkout resolves this on the server.
-   * Clients never send a price id.
-   */
+  /** Stable catalog key. The waitlist form uses this as its source sku. */
   lookupKey: string
   features: string[]
   category: string
   downloadPath: string
   /**
    * False until the file at downloadPath is a real deliverable.
-   * Buy stays "Coming soon" while this is false, even if Stripe is enabled.
+   * Buy stays "Coming soon" while this is false.
    */
   available: boolean
   emoji: string
   tags: string[]
   dateAdded: string
 }
-
-// Retired sandbox price IDs. Do not use them, and do not delete the objects in Stripe.
-// AI Content Drafter — price_1U4Jt1PVyAgWnzPryxPUEIYK
-// Telegram Capture Bot — price_1U4Jt2PVyAgWnzPrZTn95WWp
-// Reviewer / QA Agent — price_1U4Jt3PVyAgWnzPrkR0GdkSd
-// FlowVault Complete Bundle — price_1U4Jt4PVyAgWnzPrLdQLTFEI
 
 // ---------------------------------------------------------------------------
 // Products
@@ -234,9 +225,9 @@ export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
 }
 
-/** Resolve a catalog sku (product id or lookup key). Stripe price ids are rejected. */
+/** Resolve a catalog sku (product id or lookup key). */
 export function getProductBySku(sku: string): Product | undefined {
   const key = sku.trim()
-  if (!key || key.startsWith("price_")) return undefined
+  if (!key) return undefined
   return ALL_PRODUCTS.find((product) => product.id === key || product.lookupKey === key)
 }
