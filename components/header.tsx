@@ -11,7 +11,6 @@ import {
 import { siteConfig } from "@/config/site.config"
 import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
-import HumorToggle from "@/components/humor-toggle"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -43,7 +42,6 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <HumorToggle />
             {isLoaded && !isSignedIn && (
               <>
                 <SignInButton mode="modal">
